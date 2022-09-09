@@ -12,12 +12,12 @@ import (
 	"github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-state-types/crypto"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/wallet/key"
-	"github.com/filecoin-project/lotus/lib/sigs"
-	_ "github.com/filecoin-project/lotus/lib/sigs/bls"  // enable bls signatures
-	_ "github.com/filecoin-project/lotus/lib/sigs/secp" // enable secp signatures
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/wallet/key"
+	"github.com/xianleigirl/lotus/lib/sigs"
+	_ "github.com/xianleigirl/lotus/lib/sigs/bls"  // enable bls signatures
+	_ "github.com/xianleigirl/lotus/lib/sigs/secp" // enable secp signatures
 )
 
 var log = logging.Logger("wallet")

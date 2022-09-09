@@ -12,10 +12,10 @@ import (
 	"github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/api/v1api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/wallet/key"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/api/v1api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/wallet/key"
 )
 
 // TestFullNode represents a full node enrolled in an Ensemble.

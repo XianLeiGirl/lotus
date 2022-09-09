@@ -9,8 +9,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/types/mock"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/types/mock"
 )
 
 func init() {

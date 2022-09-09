@@ -9,8 +9,8 @@ import (
 	verifreg6 "github.com/filecoin-project/specs-actors/v6/actors/builtin/verifreg"
 	adt6 "github.com/filecoin-project/specs-actors/v6/actors/util/adt"
 
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
 )
 
 var _ State = (*state6)(nil)

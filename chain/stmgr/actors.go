@@ -16,17 +16,17 @@ import (
 	"github.com/filecoin-project/go-state-types/crypto"
 	"github.com/filecoin-project/go-state-types/network"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/actors/builtin"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/market"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/miner"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/paych"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/power"
-	"github.com/filecoin-project/lotus/chain/beacon"
-	"github.com/filecoin-project/lotus/chain/rand"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/vm"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/market"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/miner"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/paych"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/power"
+	"github.com/xianleigirl/lotus/chain/beacon"
+	"github.com/xianleigirl/lotus/chain/rand"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/vm"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 func GetMinerWorkerRaw(ctx context.Context, sm *StateManager, st cid.Cid, maddr address.Address) (address.Address, error) {

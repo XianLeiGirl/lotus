@@ -20,7 +20,7 @@ import (
 	builtin7 "github.com/filecoin-project/specs-actors/v7/actors/builtin"
 	builtin8 "github.com/filecoin-project/specs-actors/v8/actors/builtin"
 
-	"github.com/filecoin-project/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors"
 )
 
 var SystemActorAddr = builtin.SystemActorAddr

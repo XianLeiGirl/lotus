@@ -7,7 +7,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 var resourcesCmd = &cli.Command{

@@ -14,10 +14,10 @@ import (
 	minertypes "github.com/filecoin-project/go-state-types/builtin/v8/miner"
 	"github.com/filecoin-project/go-state-types/exitcode"
 
-	"github.com/filecoin-project/lotus/chain/stmgr"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/cmd/lotus-sim/simulation"
-	"github.com/filecoin-project/lotus/lib/stati"
+	"github.com/xianleigirl/lotus/chain/stmgr"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/cmd/lotus-sim/simulation"
+	"github.com/xianleigirl/lotus/lib/stati"
 )
 
 var infoCommitGasSimCommand = &cli.Command{

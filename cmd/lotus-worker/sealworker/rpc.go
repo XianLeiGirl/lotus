@@ -14,14 +14,14 @@ import (
 	"github.com/filecoin-project/go-jsonrpc"
 	"github.com/filecoin-project/go-jsonrpc/auth"
 
-	"github.com/filecoin-project/lotus/api"
-	apitypes "github.com/filecoin-project/lotus/api/types"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/lib/rpcenc"
-	"github.com/filecoin-project/lotus/metrics/proxy"
-	"github.com/filecoin-project/lotus/storage/paths"
-	"github.com/filecoin-project/lotus/storage/sealer"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/api"
+	apitypes "github.com/xianleigirl/lotus/api/types"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/lib/rpcenc"
+	"github.com/xianleigirl/lotus/metrics/proxy"
+	"github.com/xianleigirl/lotus/storage/paths"
+	"github.com/xianleigirl/lotus/storage/sealer"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 var log = logging.Logger("sealworker")

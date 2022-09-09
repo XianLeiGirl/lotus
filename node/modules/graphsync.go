@@ -13,11 +13,11 @@ import (
 	"go.opencensus.io/stats"
 	"go.uber.org/fx"
 
-	"github.com/filecoin-project/lotus/metrics"
-	"github.com/filecoin-project/lotus/node/config"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
-	"github.com/filecoin-project/lotus/node/modules/helpers"
-	"github.com/filecoin-project/lotus/node/repo"
+	"github.com/xianleigirl/lotus/metrics"
+	"github.com/xianleigirl/lotus/node/config"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/node/modules/helpers"
+	"github.com/xianleigirl/lotus/node/repo"
 )
 
 // Graphsync creates a graphsync instance from the given loader and storer

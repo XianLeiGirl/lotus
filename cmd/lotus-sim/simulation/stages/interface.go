@@ -7,8 +7,8 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	minertypes "github.com/filecoin-project/go-state-types/builtin/v8/miner"
 
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/cmd/lotus-sim/simulation/blockbuilder"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/cmd/lotus-sim/simulation/blockbuilder"
 )
 
 // Stage is a stage of the simulation. It's asked to pack messages for every block.

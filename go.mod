@@ -1,4 +1,4 @@
-module github.com/XianLeigirl/lotus
+module github.com/xianleigirl/lotus
 
 go 1.18
 

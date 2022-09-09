@@ -13,9 +13,9 @@ import (
 	manet "github.com/multiformats/go-multiaddr/net"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/lotus/api/client"
-	"github.com/filecoin-project/lotus/cmd/lotus-worker/sealworker"
-	"github.com/filecoin-project/lotus/node"
+	"github.com/xianleigirl/lotus/api/client"
+	"github.com/xianleigirl/lotus/cmd/lotus-worker/sealworker"
+	"github.com/xianleigirl/lotus/node"
 )
 
 func CreateRPCServer(t *testing.T, handler http.Handler, listener net.Listener) (*httptest.Server, multiaddr.Multiaddr) {

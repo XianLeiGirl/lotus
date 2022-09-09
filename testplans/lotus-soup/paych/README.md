@@ -7,7 +7,7 @@ further below.
 
 ## Payment channels stress test case (`stress.go`)
 
-***WIP | blocked due to https://github.com/filecoin-project/lotus/issues/2297***
+***WIP | blocked due to https://github.com/xianleigirl/lotus/issues/2297***
 
 This test case turns all clients into payment receivers and senders.
 The first member to start in the group becomes the _receiver_.

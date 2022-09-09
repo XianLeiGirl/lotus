@@ -21,16 +21,16 @@ import (
 	"github.com/filecoin-project/go-state-types/crypto"
 	"github.com/filecoin-project/go-state-types/proof"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/api/v1api"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors/builtin"
-	"github.com/filecoin-project/lotus/chain/actors/policy"
-	"github.com/filecoin-project/lotus/chain/gen"
-	"github.com/filecoin-project/lotus/chain/gen/slashfilter"
-	lrand "github.com/filecoin-project/lotus/chain/rand"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/journal"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/api/v1api"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/actors/policy"
+	"github.com/xianleigirl/lotus/chain/gen"
+	"github.com/xianleigirl/lotus/chain/gen/slashfilter"
+	lrand "github.com/xianleigirl/lotus/chain/rand"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/journal"
 )
 
 var log = logging.Logger("miner")
@@ -345,7 +345,7 @@ minerLoop:
 			// Wait until the next epoch, plus the propagation delay, so a new tipset
 			// has enough time to form.
 			//
-			// See:  https://github.com/filecoin-project/lotus/issues/1845
+			// See:  https://github.com/xianleigirl/lotus/issues/1845
 			nextRound := time.Unix(int64(base.TipSet.MinTimestamp()+build.BlockDelaySecs*uint64(base.NullRounds))+int64(build.PropagationDelaySecs), 0)
 
 			select {
@@ -433,7 +433,7 @@ func (m *Miner) mineOne(ctx context.Context, base *MiningBase) (minedBlock *type
 
 		// mbi can be nil if we are deep in penalty and there are 0 eligible sectors
 		// in the current deadline. If this case - put together a dummy one for reporting
-		// https://github.com/filecoin-project/lotus/blob/v1.9.0/chain/stmgr/utils.go#L500-L502
+		// https://github.com/xianleigirl/lotus/blob/v1.9.0/chain/stmgr/utils.go#L500-L502
 		if mbi == nil {
 			mbi = &api.MiningBaseInfo{
 				NetworkPower:      big.NewInt(-1), // we do not know how big the network is at this point
@@ -459,7 +459,7 @@ func (m *Miner) mineOne(ctx context.Context, base *MiningBase) (minedBlock *type
 			"nullRounds", int64(base.NullRounds),
 			"lateStart", isLate,
 			"beaconEpoch", rbase.Round,
-			"lookbackEpochs", int64(policy.ChainFinality), // hardcoded as it is unlikely to change again: https://github.com/filecoin-project/lotus/blob/v1.8.0/chain/actors/policy/policy.go#L180-L186
+			"lookbackEpochs", int64(policy.ChainFinality), // hardcoded as it is unlikely to change again: https://github.com/xianleigirl/lotus/blob/v1.8.0/chain/actors/policy/policy.go#L180-L186
 			"networkPowerAtLookback", mbi.NetworkPower.String(),
 			"minerPowerAtLookback", mbi.MinerPower.String(),
 			"isEligible", mbi.EligibleForMining,

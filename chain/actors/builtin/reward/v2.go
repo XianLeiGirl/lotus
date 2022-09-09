@@ -8,8 +8,8 @@ import (
 	reward2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/reward"
 	smoothing2 "github.com/filecoin-project/specs-actors/v2/actors/util/smoothing"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/builtin"
 )
 
 var _ State = (*state2)(nil)

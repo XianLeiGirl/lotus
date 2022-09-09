@@ -26,11 +26,11 @@ import (
 	"github.com/filecoin-project/go-state-types/builtin"
 	miner2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/miner"
 
-	"github.com/filecoin-project/lotus/api/v0api"
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/types"
-	lcli "github.com/filecoin-project/lotus/cli"
-	"github.com/filecoin-project/lotus/lib/parmap"
+	"github.com/xianleigirl/lotus/api/v0api"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/types"
+	lcli "github.com/xianleigirl/lotus/cli"
+	"github.com/xianleigirl/lotus/lib/parmap"
 )
 
 var sectorsCmd = &cli.Command{

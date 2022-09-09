@@ -16,10 +16,10 @@ import (
 	miner5 "github.com/filecoin-project/specs-actors/v5/actors/builtin/miner"
 	msig5 "github.com/filecoin-project/specs-actors/v5/actors/builtin/multisig"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/types"
-	lcli "github.com/filecoin-project/lotus/cli"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/types"
+	lcli "github.com/xianleigirl/lotus/cli"
 )
 
 var minerMultisigsCmd = &cli.Command{

@@ -16,9 +16,9 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/filecoin-project/go-state-types/exitcode"
 
-	lapi "github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	lcli "github.com/filecoin-project/lotus/cli"
+	lapi "github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	lcli "github.com/xianleigirl/lotus/cli"
 )
 
 var sendCsvCmd = &cli.Command{

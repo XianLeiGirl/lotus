@@ -12,8 +12,8 @@ import (
 
 	cborutil "github.com/filecoin-project/go-cbor-util"
 
-	lcli "github.com/filecoin-project/lotus/cli"
-	"github.com/filecoin-project/lotus/node/hello"
+	lcli "github.com/xianleigirl/lotus/cli"
+	"github.com/xianleigirl/lotus/node/hello"
 )
 
 var resultCh chan bool

@@ -17,11 +17,11 @@ import (
 	"github.com/filecoin-project/go-state-types/big"
 	"github.com/filecoin-project/go-state-types/network"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/miner"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/cmd/lotus-seed/seed"
-	"github.com/filecoin-project/lotus/genesis"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/miner"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/cmd/lotus-seed/seed"
+	"github.com/xianleigirl/lotus/genesis"
 )
 
 var log = logging.Logger("lotus-seed")

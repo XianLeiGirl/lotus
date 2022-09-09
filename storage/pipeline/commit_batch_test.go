@@ -22,13 +22,13 @@ import (
 	prooftypes "github.com/filecoin-project/go-state-types/proof"
 	miner5 "github.com/filecoin-project/specs-actors/v5/actors/builtin/miner"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/storage/ctladdr"
-	pipeline "github.com/filecoin-project/lotus/storage/pipeline"
-	"github.com/filecoin-project/lotus/storage/pipeline/mocks"
-	"github.com/filecoin-project/lotus/storage/pipeline/sealiface"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/storage/ctladdr"
+	pipeline "github.com/xianleigirl/lotus/storage/pipeline"
+	"github.com/xianleigirl/lotus/storage/pipeline/mocks"
+	"github.com/xianleigirl/lotus/storage/pipeline/sealiface"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 func TestCommitBatcher(t *testing.T) {

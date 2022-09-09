@@ -15,7 +15,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/filecoin-project/lotus/blockstore"
+	"github.com/xianleigirl/lotus/blockstore"
 )
 
 func TestBadgerBlockstore(t *testing.T) {

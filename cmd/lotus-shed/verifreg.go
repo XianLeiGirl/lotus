@@ -15,14 +15,14 @@ import (
 	"github.com/filecoin-project/go-state-types/crypto"
 	verifreg2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/verifreg"
 
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/multisig"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/verifreg"
-	"github.com/filecoin-project/lotus/chain/types"
-	lcli "github.com/filecoin-project/lotus/cli"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/multisig"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/verifreg"
+	"github.com/xianleigirl/lotus/chain/types"
+	lcli "github.com/xianleigirl/lotus/cli"
 )
 
 var verifRegCmd = &cli.Command{

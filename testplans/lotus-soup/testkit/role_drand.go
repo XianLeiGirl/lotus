@@ -25,8 +25,8 @@ import (
 	ma "github.com/multiformats/go-multiaddr"
 	"github.com/testground/sdk-go/sync"
 
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
-	"github.com/filecoin-project/lotus/testplans/lotus-soup/statemachine"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/testplans/lotus-soup/statemachine"
 )
 
 var (

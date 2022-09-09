@@ -6,7 +6,7 @@ import (
 	lru "github.com/hashicorp/golang-lru"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/lotus/build"
+	"github.com/xianleigirl/lotus/build"
 )
 
 type BadBlockCache struct {

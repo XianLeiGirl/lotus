@@ -19,12 +19,12 @@ import (
 	"github.com/filecoin-project/go-state-types/network"
 	miner6 "github.com/filecoin-project/specs-actors/v6/actors/builtin/miner"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/node/config"
-	pipeline "github.com/filecoin-project/lotus/storage/pipeline"
-	"github.com/filecoin-project/lotus/storage/pipeline/mocks"
-	"github.com/filecoin-project/lotus/storage/pipeline/sealiface"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/node/config"
+	pipeline "github.com/xianleigirl/lotus/storage/pipeline"
+	"github.com/xianleigirl/lotus/storage/pipeline/mocks"
+	"github.com/xianleigirl/lotus/storage/pipeline/sealiface"
 )
 
 var fc = config.MinerFeeConfig{

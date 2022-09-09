@@ -19,10 +19,10 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	prooftypes "github.com/filecoin-project/go-state-types/proof"
 
-	"github.com/filecoin-project/lotus/storage/paths"
-	"github.com/filecoin-project/lotus/storage/sealer/fsutil"
-	"github.com/filecoin-project/lotus/storage/sealer/sealtasks"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/storage/paths"
+	"github.com/xianleigirl/lotus/storage/sealer/fsutil"
+	"github.com/xianleigirl/lotus/storage/sealer/sealtasks"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 func init() {

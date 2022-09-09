@@ -9,7 +9,7 @@ body:
     options:
       - label: This is **not** a new feature or an enhancement to the Filecoin protocol. If it is,  please open an [FIP issue](https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0001.md).
         required: true
-      - label: This is **not** brainstorming ideas. If you have an idea you'd like to discuss, please open a new discussion on [the lotus forum](https://github.com/filecoin-project/lotus/discussions/categories/ideas) and select the category as `Ideas`.
+      - label: This is **not** brainstorming ideas. If you have an idea you'd like to discuss, please open a new discussion on [the lotus forum](https://github.com/xianleigirl/lotus/discussions/categories/ideas) and select the category as `Ideas`.
         required: true
       - label: I **have** a specific, actionable, and well motivated feature request to propose.
         required: true

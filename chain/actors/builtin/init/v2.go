@@ -10,8 +10,8 @@ import (
 	init2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/init"
 	adt2 "github.com/filecoin-project/specs-actors/v2/actors/util/adt"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
 )
 
 var _ State = (*state2)(nil)

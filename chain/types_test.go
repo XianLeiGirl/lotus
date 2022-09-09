@@ -8,8 +8,8 @@ import (
 
 	"github.com/filecoin-project/go-address"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 func TestSignedMessageJsonRoundtrip(t *testing.T) {

@@ -12,8 +12,8 @@ import (
 	market0 "github.com/filecoin-project/specs-actors/actors/builtin/market"
 	adt0 "github.com/filecoin-project/specs-actors/actors/util/adt"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 var _ State = (*state0)(nil)

@@ -7,8 +7,8 @@ import (
 
 	"github.com/filecoin-project/go-paramfetch"
 
-	"github.com/filecoin-project/lotus/build"
-	lcli "github.com/filecoin-project/lotus/cli"
+	"github.com/xianleigirl/lotus/build"
+	lcli "github.com/xianleigirl/lotus/cli"
 )
 
 var fetchParamCmd = &cli.Command{

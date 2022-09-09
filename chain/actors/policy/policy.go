@@ -42,7 +42,7 @@ import (
 	miner7 "github.com/filecoin-project/specs-actors/v7/actors/builtin/miner"
 	verifreg7 "github.com/filecoin-project/specs-actors/v7/actors/builtin/verifreg"
 
-	"github.com/filecoin-project/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors"
 )
 
 const (

@@ -10,8 +10,8 @@ import (
 
 	"github.com/filecoin-project/go-address"
 
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 type MockAPI struct {

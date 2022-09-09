@@ -15,17 +15,17 @@ import (
 	"github.com/filecoin-project/go-state-types/big"
 	paychtypes "github.com/filecoin-project/go-state-types/builtin/v8/paych"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/chain/actors/builtin"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/paych"
-	"github.com/filecoin-project/lotus/chain/actors/policy"
-	"github.com/filecoin-project/lotus/chain/events"
-	"github.com/filecoin-project/lotus/chain/events/state"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/paych"
+	"github.com/xianleigirl/lotus/chain/actors/policy"
+	"github.com/xianleigirl/lotus/chain/events"
+	"github.com/xianleigirl/lotus/chain/events/state"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/itests/kit"
 )
 
 func TestPaymentChannelsAPI(t *testing.T) {

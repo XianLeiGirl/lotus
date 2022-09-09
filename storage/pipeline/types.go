@@ -9,10 +9,10 @@ import (
 	"github.com/filecoin-project/go-state-types/big"
 	"github.com/filecoin-project/go-state-types/builtin/v8/miner"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/storage/sealer"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/storage/sealer"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 //go:generate go run github.com/golang/mock/mockgen -destination=mocks/statemachine.go -package=mocks . Context

@@ -18,13 +18,13 @@ import (
 	"github.com/filecoin-project/go-state-types/proof"
 	"github.com/filecoin-project/go-statemachine"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/actors/policy"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/storage/pipeline/lib/nullreader"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors/policy"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/storage/pipeline/lib/nullreader"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 var DealSectorPriority = 1024

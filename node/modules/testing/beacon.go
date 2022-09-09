@@ -3,8 +3,8 @@ package testing
 import (
 	"time"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/beacon"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/beacon"
 )
 
 func RandomBeacon() (beacon.Schedule, error) {

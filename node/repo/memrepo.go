@@ -15,12 +15,12 @@ import (
 	"github.com/multiformats/go-multiaddr"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/node/config"
-	"github.com/filecoin-project/lotus/storage/paths"
-	"github.com/filecoin-project/lotus/storage/sealer/fsutil"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/node/config"
+	"github.com/xianleigirl/lotus/storage/paths"
+	"github.com/xianleigirl/lotus/storage/sealer/fsutil"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 type MemRepo struct {

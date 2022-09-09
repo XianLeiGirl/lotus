@@ -11,8 +11,8 @@ import (
 	"github.com/filecoin-project/go-state-types/builtin/v8/miner"
 	"github.com/filecoin-project/go-state-types/dline"
 
-	apitypes "github.com/filecoin-project/lotus/api/types"
-	"github.com/filecoin-project/lotus/chain/types"
+	apitypes "github.com/xianleigirl/lotus/api/types"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 //                       MODIFYING THE API INTERFACE

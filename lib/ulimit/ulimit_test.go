@@ -13,7 +13,7 @@ import (
 	"syscall"
 	"testing"
 
-	"github.com/filecoin-project/lotus/build"
+	"github.com/xianleigirl/lotus/build"
 )
 
 func TestManageFdLimit(t *testing.T) {

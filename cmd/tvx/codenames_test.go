@@ -7,7 +7,7 @@ import (
 
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/build"
+	"github.com/xianleigirl/lotus/build"
 )
 
 func TestProtocolCodenames(t *testing.T) {

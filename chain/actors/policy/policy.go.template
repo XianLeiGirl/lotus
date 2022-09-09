@@ -8,7 +8,7 @@ import (
 
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/filecoin-project/go-state-types/network"
-	"github.com/filecoin-project/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors"
 
 	{{range .versions}}
 	{{if (ge . 8)}}

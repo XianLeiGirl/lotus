@@ -21,16 +21,16 @@ import (
 	"github.com/filecoin-project/go-state-types/network"
 	miner2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/miner"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/miner"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/itests/kit"
-	"github.com/filecoin-project/lotus/node/impl"
-	"github.com/filecoin-project/lotus/storage/sealer/mock"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/miner"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/node/impl"
+	"github.com/xianleigirl/lotus/storage/sealer/mock"
 )
 
 // TestDeadlineToggling:

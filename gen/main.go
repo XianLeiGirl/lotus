@@ -6,16 +6,16 @@ import (
 
 	gen "github.com/whyrusleeping/cbor-gen"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/exchange"
-	"github.com/filecoin-project/lotus/chain/market"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/vm"
-	"github.com/filecoin-project/lotus/cmd/lotus-shed/shedgen"
-	"github.com/filecoin-project/lotus/node/hello"
-	"github.com/filecoin-project/lotus/paychmgr"
-	sectorstorage "github.com/filecoin-project/lotus/storage/sealer"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/exchange"
+	"github.com/xianleigirl/lotus/chain/market"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/vm"
+	"github.com/xianleigirl/lotus/cmd/lotus-shed/shedgen"
+	"github.com/xianleigirl/lotus/node/hello"
+	"github.com/xianleigirl/lotus/paychmgr"
+	sectorstorage "github.com/xianleigirl/lotus/storage/sealer"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 func main() {

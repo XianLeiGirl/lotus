@@ -22,9 +22,9 @@ import (
 
 	"github.com/filecoin-project/go-address"
 
-	atypes "github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/lib/addrutil"
+	atypes "github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/lib/addrutil"
 )
 
 var NetCmd = &cli.Command{

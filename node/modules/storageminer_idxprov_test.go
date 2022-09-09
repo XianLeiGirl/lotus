@@ -16,9 +16,9 @@ import (
 	"github.com/filecoin-project/go-address"
 	provider "github.com/filecoin-project/index-provider"
 
-	"github.com/filecoin-project/lotus/node/config"
-	"github.com/filecoin-project/lotus/node/modules"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/node/config"
+	"github.com/xianleigirl/lotus/node/modules"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
 )
 
 func Test_IndexProviderTopic(t *testing.T) {

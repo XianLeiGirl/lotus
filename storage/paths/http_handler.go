@@ -14,9 +14,9 @@ import (
 
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/storage/sealer/partialfile"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
-	"github.com/filecoin-project/lotus/storage/sealer/tarutil"
+	"github.com/xianleigirl/lotus/storage/sealer/partialfile"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/storage/sealer/tarutil"
 )
 
 var log = logging.Logger("stores")

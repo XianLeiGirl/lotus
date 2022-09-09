@@ -9,7 +9,7 @@ import (
 	paych2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/paych"
 	adt2 "github.com/filecoin-project/specs-actors/v2/actors/util/adt"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
 )
 
 var _ State = (*state2)(nil)

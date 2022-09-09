@@ -20,8 +20,8 @@ import (
 	"go.uber.org/multierr"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/lib/backupds"
-	"github.com/filecoin-project/lotus/node/repo"
+	"github.com/xianleigirl/lotus/lib/backupds"
+	"github.com/xianleigirl/lotus/node/repo"
 )
 
 var datastoreCmd = &cli.Command{

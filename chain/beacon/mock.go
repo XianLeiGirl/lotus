@@ -12,7 +12,7 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/filecoin-project/go-state-types/network"
 
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 // Mock beacon assumes that filecoin rounds are 1:1 mapped with the beacon rounds

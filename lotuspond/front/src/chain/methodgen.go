@@ -7,8 +7,8 @@ import (
 
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/chain/actors/builtin"
-	"github.com/filecoin-project/lotus/chain/consensus/filcns"
+	"github.com/xianleigirl/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/consensus/filcns"
 )
 
 func main() {

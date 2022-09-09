@@ -5,8 +5,8 @@ import (
 
 	"github.com/filecoin-project/go-address"
 
-	"github.com/filecoin-project/lotus/chain/actors/builtin/paych"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/paych"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 type stateAccessor struct {

@@ -10,8 +10,8 @@ import (
 
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/chain/store"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/store"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 // WaitForMessage blocks until a message appears on chain. It looks backwards in the chain to see if this has already

@@ -20,13 +20,13 @@ import (
 	"github.com/filecoin-project/go-bitfield"
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/miner"
-	"github.com/filecoin-project/lotus/chain/store"
-	"github.com/filecoin-project/lotus/chain/types"
-	lcli "github.com/filecoin-project/lotus/cli"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/miner"
+	"github.com/xianleigirl/lotus/chain/store"
+	"github.com/xianleigirl/lotus/chain/types"
+	lcli "github.com/xianleigirl/lotus/cli"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 var provingCmd = &cli.Command{

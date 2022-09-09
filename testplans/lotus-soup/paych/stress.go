@@ -13,9 +13,9 @@ import (
 	"github.com/filecoin-project/go-state-types/big"
 	"github.com/filecoin-project/go-state-types/builtin/v8/paych"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/testplans/lotus-soup/testkit"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/testplans/lotus-soup/testkit"
 )
 
 var SendersDoneState = sync.State("senders-done")
@@ -45,7 +45,7 @@ func getClientMode(groupSeq int64) ClientMode {
 
 // TODO Stress is currently WIP. We found blockers in Lotus that prevent us from
 //
-//	making progress. See https://github.com/filecoin-project/lotus/issues/2297.
+//	making progress. See https://github.com/xianleigirl/lotus/issues/2297.
 func Stress(t *testkit.TestEnvironment) error {
 	// Dispatch/forward non-client roles to defaults.
 	if t.Role != "client" {
@@ -297,7 +297,7 @@ func runReceiver(t *testkit.TestEnvironment, ctx context.Context, cl *testkit.Lo
 	// automatically call submit voucher with the best vouchers
 
 	// TODO: Uncomment this section once this PR is merged:
-	// https://github.com/filecoin-project/lotus/pull/3197
+	// https://github.com/xianleigirl/lotus/pull/3197
 	//t.RecordMessage("checking that all %d vouchers are no longer spendable", len(addedVouchers))
 	//for i, v := range addedVouchers {
 	//	spendable, err := cl.FullApi.PaychVoucherCheckSpendable(ctx, v.ChannelAddr, v, nil, nil)

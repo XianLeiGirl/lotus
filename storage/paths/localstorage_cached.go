@@ -6,7 +6,7 @@ import (
 
 	lru "github.com/hashicorp/golang-lru"
 
-	"github.com/filecoin-project/lotus/storage/sealer/fsutil"
+	"github.com/xianleigirl/lotus/storage/sealer/fsutil"
 )
 
 var StatTimeout = 5 * time.Second

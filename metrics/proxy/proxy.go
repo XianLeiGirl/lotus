@@ -6,8 +6,8 @@ import (
 
 	"go.opencensus.io/tag"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/metrics"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/metrics"
 )
 
 func MetricedStorMinerAPI(a api.StorageMiner) api.StorageMiner {

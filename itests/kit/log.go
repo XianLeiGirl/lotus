@@ -3,7 +3,7 @@ package kit
 import (
 	logging "github.com/ipfs/go-log/v2"
 
-	"github.com/filecoin-project/lotus/lib/lotuslog"
+	"github.com/xianleigirl/lotus/lib/lotuslog"
 )
 
 func QuietMiningLogs() {

@@ -9,10 +9,10 @@ import (
 	logging "github.com/ipfs/go-log/v2"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/lotus/itests/kit"
-	"github.com/filecoin-project/lotus/storage/paths"
-	"github.com/filecoin-project/lotus/storage/sealer/sealtasks"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/storage/paths"
+	"github.com/xianleigirl/lotus/storage/sealer/sealtasks"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 func TestPathTypeFilters(t *testing.T) {

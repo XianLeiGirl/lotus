@@ -19,9 +19,9 @@ import (
 	"go.uber.org/fx"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
-	"github.com/filecoin-project/lotus/node/modules/lp2p"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/node/modules/lp2p"
 )
 
 type NetAPI struct {

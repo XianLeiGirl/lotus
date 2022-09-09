@@ -5,7 +5,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"github.com/filecoin-project/lotus/build"
+	"github.com/xianleigirl/lotus/build"
 )
 
 var StatusCmd = &cli.Command{

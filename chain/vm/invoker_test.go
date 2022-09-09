@@ -17,8 +17,8 @@ import (
 	"github.com/filecoin-project/go-state-types/network"
 	runtime2 "github.com/filecoin-project/specs-actors/v2/actors/runtime"
 
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/actors/aerrors"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors/aerrors"
 )
 
 type basicContract struct{}

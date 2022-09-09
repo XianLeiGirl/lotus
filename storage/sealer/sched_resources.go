@@ -5,8 +5,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/filecoin-project/lotus/storage/sealer/sealtasks"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/storage/sealer/sealtasks"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 type ActiveResources struct {

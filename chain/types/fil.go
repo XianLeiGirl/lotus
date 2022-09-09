@@ -6,7 +6,7 @@ import (
 	"math/big"
 	"strings"
 
-	"github.com/filecoin-project/lotus/build"
+	"github.com/xianleigirl/lotus/build"
 )
 
 type FIL BigInt

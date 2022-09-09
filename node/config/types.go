@@ -3,8 +3,8 @@ package config
 import (
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/storage/sealer"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/storage/sealer"
 )
 
 // // NOTE: ONLY PUT STRUCT DEFINITIONS IN THIS FILE

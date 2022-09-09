@@ -11,10 +11,10 @@ import (
 
 	"github.com/filecoin-project/go-address"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/cli"
-	"github.com/filecoin-project/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/cli"
+	"github.com/xianleigirl/lotus/itests/kit"
 )
 
 func RunMultisigTests(t *testing.T, client *kit.TestFullNode) {

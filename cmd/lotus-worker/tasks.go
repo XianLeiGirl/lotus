@@ -7,9 +7,10 @@ import (
 	"github.com/urfave/cli/v2"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/api"
-	lcli "github.com/filecoin-project/lotus/cli"
-	"github.com/filecoin-project/lotus/storage/sealer/sealtasks"
+	"github.com/xianleigirl/lotus/api"
+
+	lcli "github.com/xianleigirl/lotus/cli"
+	"github.com/xianleigirl/lotus/storage/sealer/sealtasks"
 )
 
 var tasksCmd = &cli.Command{

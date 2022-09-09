@@ -10,10 +10,10 @@ import (
 
 	"github.com/filecoin-project/go-state-types/big"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/store"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/store"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/itests/kit"
 )
 
 func TestChainGetMessagesInTs(t *testing.T) {

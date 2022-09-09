@@ -15,12 +15,12 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	provider "github.com/filecoin-project/index-provider"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/itests/kit"
-	"github.com/filecoin-project/lotus/node"
-	"github.com/filecoin-project/lotus/node/modules"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
-	"github.com/filecoin-project/lotus/node/repo"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/node"
+	"github.com/xianleigirl/lotus/node/modules"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/node/repo"
 )
 
 // TestDealWithMarketAndMinerNode is running concurrently a number of storage and retrieval deals towards a miner

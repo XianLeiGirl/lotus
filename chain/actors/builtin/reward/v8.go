@@ -8,8 +8,8 @@ import (
 	reward8 "github.com/filecoin-project/go-state-types/builtin/v8/reward"
 	smoothing8 "github.com/filecoin-project/go-state-types/builtin/v8/util/smoothing"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/builtin"
 )
 
 var _ State = (*state8)(nil)

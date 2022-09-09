@@ -36,7 +36,7 @@ builds:
       - CGO_ENABLED=1
       - FFI_BUILD_FROM_SOURCE=1
     ldflags:
-      - -X=github.com/filecoin-project/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
+      - -X=github.com/xianleigirl/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
   - id: lotus-miner_darwin_amd64
     main: ./cmd/lotus-miner
     binary: lotus-miner
@@ -48,7 +48,7 @@ builds:
       - CGO_ENABLED=1
       - FFI_BUILD_FROM_SOURCE=1
     ldflags:
-      - -X=github.com/filecoin-project/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
+      - -X=github.com/xianleigirl/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
   - id: lotus-worker_darwin_amd64
     main: ./cmd/lotus-worker
     binary: lotus-worker
@@ -60,7 +60,7 @@ builds:
       - CGO_ENABLED=1
       - FFI_BUILD_FROM_SOURCE=1
     ldflags:
-      - -X=github.com/filecoin-project/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
+      - -X=github.com/xianleigirl/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
   - id: lotus_darwin_arm64
     main: ./cmd/lotus
     binary: lotus
@@ -74,7 +74,7 @@ builds:
       - CPATH=/opt/homebrew/include
       - LIBRARY_PATH=/opt/homebrew/lib
     ldflags:
-      - -X=github.com/filecoin-project/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
+      - -X=github.com/xianleigirl/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
   - id: lotus-miner_darwin_arm64
     main: ./cmd/lotus-miner
     binary: lotus-miner
@@ -88,7 +88,7 @@ builds:
       - CPATH=/opt/homebrew/include
       - LIBRARY_PATH=/opt/homebrew/lib
     ldflags:
-      - -X=github.com/filecoin-project/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
+      - -X=github.com/xianleigirl/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
   - id: lotus-worker_darwin_arm64
     main: ./cmd/lotus-worker
     binary: lotus-worker
@@ -102,7 +102,7 @@ builds:
       - CPATH=/opt/homebrew/include
       - LIBRARY_PATH=/opt/homebrew/lib
     ldflags:
-      - -X=github.com/filecoin-project/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
+      - -X=github.com/xianleigirl/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
 #  - id: linux
 #    main: ./cmd/lotus
 #    binary: lotus
@@ -113,7 +113,7 @@ builds:
 #    env:
 #      - CGO_ENABLED=1
 #    ldflags:
-#      - -X=github.com/filecoin-project/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
+#      - -X=github.com/xianleigirl/lotus/build.CurrentCommit=+git.{{.ShortCommit}}
 
 archives:
   - id: primary

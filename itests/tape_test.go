@@ -10,10 +10,10 @@ import (
 
 	"github.com/filecoin-project/go-state-types/network"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/itests/kit"
-	sealing "github.com/filecoin-project/lotus/storage/pipeline"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/itests/kit"
+	sealing "github.com/xianleigirl/lotus/storage/pipeline"
 )
 
 func TestTapeFix(t *testing.T) {

@@ -11,7 +11,7 @@ import (
 
 	"github.com/filecoin-project/go-state-types/manifest"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
 )
 
 var manifestCids map[Version]cid.Cid = make(map[Version]cid.Cid)

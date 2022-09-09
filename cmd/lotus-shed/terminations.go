@@ -15,15 +15,15 @@ import (
 	"github.com/filecoin-project/go-state-types/builtin"
 	miner2 "github.com/filecoin-project/specs-actors/actors/builtin/miner"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	lbuiltin "github.com/filecoin-project/lotus/chain/actors/builtin"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/market"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/miner"
-	"github.com/filecoin-project/lotus/chain/consensus/filcns"
-	"github.com/filecoin-project/lotus/chain/state"
-	"github.com/filecoin-project/lotus/chain/store"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/node/repo"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	lbuiltin "github.com/xianleigirl/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/market"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/miner"
+	"github.com/xianleigirl/lotus/chain/consensus/filcns"
+	"github.com/xianleigirl/lotus/chain/state"
+	"github.com/xianleigirl/lotus/chain/store"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/node/repo"
 )
 
 var terminationsCmd = &cli.Command{

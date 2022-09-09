@@ -8,8 +8,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 func TestBaseFee(t *testing.T) {

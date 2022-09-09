@@ -27,7 +27,7 @@ fi
 BASEDIR=$(mktemp -d -t "lotus-interopnet.XXXX")
 
 if [ "$BUILD" == "yes" ]; then
-  git clone --branch "$BRANCH" https://github.com/filecoin-project/lotus.git "${BASEDIR}/build"
+  git clone --branch "$BRANCH" https://github.com/xianleigirl/lotus.git "${BASEDIR}/build"
 fi
 
 

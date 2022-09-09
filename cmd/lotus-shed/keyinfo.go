@@ -19,14 +19,14 @@ import (
 	"github.com/urfave/cli/v2"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/wallet"
-	"github.com/filecoin-project/lotus/chain/wallet/key"
-	_ "github.com/filecoin-project/lotus/lib/sigs/bls"
-	_ "github.com/filecoin-project/lotus/lib/sigs/secp"
-	"github.com/filecoin-project/lotus/node/modules"
-	"github.com/filecoin-project/lotus/node/modules/lp2p"
-	"github.com/filecoin-project/lotus/node/repo"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/wallet"
+	"github.com/xianleigirl/lotus/chain/wallet/key"
+	_ "github.com/xianleigirl/lotus/lib/sigs/bls"
+	_ "github.com/xianleigirl/lotus/lib/sigs/secp"
+	"github.com/xianleigirl/lotus/node/modules"
+	"github.com/xianleigirl/lotus/node/modules/lp2p"
+	"github.com/xianleigirl/lotus/node/repo"
 )
 
 var validTypes = []types.KeyType{types.KTBLS, types.KTSecp256k1, lp2p.KTLibp2pHost}

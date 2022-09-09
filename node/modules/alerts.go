@@ -1,8 +1,8 @@
 package modules
 
 import (
-	"github.com/filecoin-project/lotus/journal/alerting"
-	"github.com/filecoin-project/lotus/lib/ulimit"
+	"github.com/xianleigirl/lotus/journal/alerting"
+	"github.com/xianleigirl/lotus/lib/ulimit"
 )
 
 func CheckFdLimit(min uint64) func(al *alerting.Alerting) {

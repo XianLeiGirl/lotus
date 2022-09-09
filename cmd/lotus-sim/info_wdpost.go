@@ -9,9 +9,9 @@ import (
 	"github.com/filecoin-project/go-state-types/builtin"
 	"github.com/filecoin-project/go-state-types/exitcode"
 
-	"github.com/filecoin-project/lotus/chain/stmgr"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/cmd/lotus-sim/simulation"
+	"github.com/xianleigirl/lotus/chain/stmgr"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/cmd/lotus-sim/simulation"
 )
 
 var infoWindowPostBandwidthSimCommand = &cli.Command{

@@ -17,9 +17,9 @@ import (
     {{end}}
 
 
-	"github.com/filecoin-project/lotus/chain/actors"
-	init_ "github.com/filecoin-project/lotus/chain/actors/builtin/init"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/actors"
+	init_ "github.com/xianleigirl/lotus/chain/actors/builtin/init"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 type message{{.v}} struct{ {{if (ge .v 2)}}message0{{else}}from address.Address{{end}} }

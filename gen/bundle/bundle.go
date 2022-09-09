@@ -4,7 +4,7 @@ import (
 	"os"
 	"text/template"
 
-	"github.com/filecoin-project/lotus/build"
+	"github.com/xianleigirl/lotus/build"
 )
 
 var tmpl *template.Template = template.Must(template.New("actor-metadata").Parse(`

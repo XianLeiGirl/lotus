@@ -28,7 +28,7 @@ func goCmd() string {
 
 func TestDoesntDependOnFFI(t *testing.T) {
 	//stm: @OTHER_IMPLEMENTATION_FFI_DEPENDENCE_001
-	deps, err := exec.Command(goCmd(), "list", "-deps", "github.com/filecoin-project/lotus/api").Output()
+	deps, err := exec.Command(goCmd(), "list", "-deps", "github.com/xianleigirl/lotus/api").Output()
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -41,7 +41,7 @@ func TestDoesntDependOnFFI(t *testing.T) {
 
 func TestDoesntDependOnBuild(t *testing.T) {
 	//stm: @OTHER_IMPLEMENTATION_FFI_DEPENDENCE_002
-	deps, err := exec.Command(goCmd(), "list", "-deps", "github.com/filecoin-project/lotus/api").Output()
+	deps, err := exec.Command(goCmd(), "list", "-deps", "github.com/xianleigirl/lotus/api").Output()
 	if err != nil {
 		t.Fatal(err)
 	}

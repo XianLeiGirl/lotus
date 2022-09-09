@@ -116,7 +116,7 @@ Patch releases in odd minor releases (1.3.0, 1.5.0, etc.) like 1.3.1, 1.5.2 and 
 
 ### Performing a Release
 
-At the beginning of each release cycle, we will generate our "Release tracking issue", which is populated with the content at [https://github.com/filecoin-project/lotus/blob/master/documentation/misc/RELEASE_ISSUE_TEMPLATE.md](https://github.com/filecoin-project/lotus/blob/master/documentation/misc/RELEASE_ISSUE_TEMPLATE.md) 
+At the beginning of each release cycle, we will generate our "Release tracking issue", which is populated with the content at [https://github.com/xianleigirl/lotus/blob/master/documentation/misc/RELEASE_ISSUE_TEMPLATE.md](https://github.com/xianleigirl/lotus/blob/master/documentation/misc/RELEASE_ISSUE_TEMPLATE.md) 
 
 This template will be used to track major goals we have, a planned shipping date, and a complete release checklist tied to a specific release.
 
@@ -138,5 +138,5 @@ Golang tightly couples source code with versioning (major versions beyond v1 lea
 
 ## Related Items
 
-1. [Release Issue template](https://github.com/filecoin-project/lotus/blob/master/documentation/misc/RELEASE_ISSUE_TEMPLATE.md)
-2. [Lotus Release Flow Discussion](https://github.com/filecoin-project/lotus/discussions/7053): Leave a comment if you have any questions or feedbacks with regard to the lotus release flow.
+1. [Release Issue template](https://github.com/xianleigirl/lotus/blob/master/documentation/misc/RELEASE_ISSUE_TEMPLATE.md)
+2. [Lotus Release Flow Discussion](https://github.com/xianleigirl/lotus/discussions/7053): Leave a comment if you have any questions or feedbacks with regard to the lotus release flow.

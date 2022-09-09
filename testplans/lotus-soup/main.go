@@ -3,9 +3,9 @@ package main
 import (
 	"github.com/testground/sdk-go/run"
 
-	"github.com/filecoin-project/lotus/testplans/lotus-soup/paych"
-	"github.com/filecoin-project/lotus/testplans/lotus-soup/rfwp"
-	"github.com/filecoin-project/lotus/testplans/lotus-soup/testkit"
+	"github.com/xianleigirl/lotus/testplans/lotus-soup/paych"
+	"github.com/xianleigirl/lotus/testplans/lotus-soup/rfwp"
+	"github.com/xianleigirl/lotus/testplans/lotus-soup/testkit"
 )
 
 var cases = map[string]interface{}{

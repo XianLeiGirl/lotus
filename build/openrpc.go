@@ -6,7 +6,7 @@ import (
 	"embed"
 	"encoding/json"
 
-	apitypes "github.com/filecoin-project/lotus/api/types"
+	apitypes "github.com/xianleigirl/lotus/api/types"
 )
 
 //go:embed openrpc

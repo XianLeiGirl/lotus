@@ -17,13 +17,13 @@ import (
 	verifregst "github.com/filecoin-project/go-state-types/builtin/v8/verifreg"
 	"github.com/filecoin-project/go-state-types/network"
 
-	lapi "github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/verifreg"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/wallet/key"
-	"github.com/filecoin-project/lotus/itests/kit"
-	"github.com/filecoin-project/lotus/node/impl"
+	lapi "github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/verifreg"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/wallet/key"
+	"github.com/xianleigirl/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/node/impl"
 )
 
 func TestVerifiedClientTopUp(t *testing.T) {

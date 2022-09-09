@@ -4,7 +4,7 @@ import (
 	"github.com/urfave/cli/v2"
 	"golang.org/x/xerrors"
 
-	lcli "github.com/filecoin-project/lotus/cli"
+	lcli "github.com/xianleigirl/lotus/cli"
 )
 
 var setCmd = &cli.Command{

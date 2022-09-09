@@ -13,8 +13,8 @@ import (
 	rlepluslazy "github.com/filecoin-project/go-bitfield/rle"
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/storage/sealer/fsutil"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/storage/sealer/fsutil"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 var log = logging.Logger("partialfile")

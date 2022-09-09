@@ -11,8 +11,8 @@ import (
 	"github.com/google/uuid"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/lotus/storage/sealer/fsutil"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/storage/sealer/fsutil"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 const pathSize = 16 << 20

@@ -8,9 +8,9 @@ import (
 	init2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/init"
 	paych2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/paych"
 
-	"github.com/filecoin-project/lotus/chain/actors"
-	init_ "github.com/filecoin-project/lotus/chain/actors/builtin/init"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/actors"
+	init_ "github.com/xianleigirl/lotus/chain/actors/builtin/init"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 type message2 struct{ from address.Address }

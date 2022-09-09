@@ -12,8 +12,8 @@ import (
 	power8 "github.com/filecoin-project/go-state-types/builtin/v8/power"
 	adt8 "github.com/filecoin-project/go-state-types/builtin/v8/util/adt"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/builtin"
 )
 
 var _ State = (*state8)(nil)

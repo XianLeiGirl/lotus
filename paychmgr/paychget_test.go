@@ -20,10 +20,10 @@ import (
 	init2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/init"
 	tutils "github.com/filecoin-project/specs-actors/v2/support/testing"
 
-	lotusinit "github.com/filecoin-project/lotus/chain/actors/builtin/init"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/paych"
-	paychmock "github.com/filecoin-project/lotus/chain/actors/builtin/paych/mock"
-	"github.com/filecoin-project/lotus/chain/types"
+	lotusinit "github.com/xianleigirl/lotus/chain/actors/builtin/init"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/paych"
+	paychmock "github.com/xianleigirl/lotus/chain/actors/builtin/paych/mock"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 var onChainReserve = GetOpts{

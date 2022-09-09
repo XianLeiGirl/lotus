@@ -10,9 +10,9 @@ import (
 	"github.com/filecoin-project/go-jsonrpc/auth"
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/api/client"
-	"github.com/filecoin-project/lotus/storage/sealer"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/api/client"
+	"github.com/xianleigirl/lotus/storage/sealer"
 )
 
 type remoteWorker struct {

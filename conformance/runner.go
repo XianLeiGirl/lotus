@@ -28,10 +28,10 @@ import (
 	"github.com/filecoin-project/go-state-types/network"
 	"github.com/filecoin-project/test-vectors/schema"
 
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/chain/consensus/filcns"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/vm"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/chain/consensus/filcns"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/vm"
 )
 
 // FallbackBlockstoreGetter is a fallback blockstore to use for resolving CIDs

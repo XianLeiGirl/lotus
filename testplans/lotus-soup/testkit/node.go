@@ -16,18 +16,18 @@ import (
 
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/beacon"
-	"github.com/filecoin-project/lotus/chain/wallet/key"
-	"github.com/filecoin-project/lotus/metrics"
-	"github.com/filecoin-project/lotus/miner"
-	"github.com/filecoin-project/lotus/node"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
-	modtest "github.com/filecoin-project/lotus/node/modules/testing"
-	tinflux "github.com/filecoin-project/lotus/tools/stats/influx"
-	tipldstore "github.com/filecoin-project/lotus/tools/stats/ipldstore"
-	tpoints "github.com/filecoin-project/lotus/tools/stats/points"
-	tsync "github.com/filecoin-project/lotus/tools/stats/sync"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/beacon"
+	"github.com/xianleigirl/lotus/chain/wallet/key"
+	"github.com/xianleigirl/lotus/metrics"
+	"github.com/xianleigirl/lotus/miner"
+	"github.com/xianleigirl/lotus/node"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
+	modtest "github.com/xianleigirl/lotus/node/modules/testing"
+	tinflux "github.com/xianleigirl/lotus/tools/stats/influx"
+	tipldstore "github.com/xianleigirl/lotus/tools/stats/ipldstore"
+	tpoints "github.com/xianleigirl/lotus/tools/stats/points"
+	tsync "github.com/xianleigirl/lotus/tools/stats/sync"
 )
 
 var PrepareNodeTimeout = 3 * time.Minute

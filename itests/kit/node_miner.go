@@ -22,13 +22,13 @@ import (
 	"github.com/filecoin-project/go-address"
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/wallet/key"
-	"github.com/filecoin-project/lotus/miner"
-	"github.com/filecoin-project/lotus/storage/paths"
-	sealing "github.com/filecoin-project/lotus/storage/pipeline"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/wallet/key"
+	"github.com/xianleigirl/lotus/miner"
+	"github.com/xianleigirl/lotus/storage/paths"
+	sealing "github.com/xianleigirl/lotus/storage/pipeline"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 type MinerSubsystem int

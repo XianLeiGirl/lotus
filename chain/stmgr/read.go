@@ -9,8 +9,8 @@ import (
 
 	"github.com/filecoin-project/go-address"
 
-	"github.com/filecoin-project/lotus/chain/state"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/state"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 func (sm *StateManager) ParentStateTsk(ctx context.Context, tsk types.TipSetKey) (*state.StateTree, error) {

@@ -27,10 +27,10 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	prooftypes "github.com/filecoin-project/go-state-types/proof"
 
-	"github.com/filecoin-project/lotus/chain/actors/policy"
-	"github.com/filecoin-project/lotus/storage/pipeline/lib/nullreader"
-	"github.com/filecoin-project/lotus/storage/sealer/ffiwrapper/basicfs"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/chain/actors/policy"
+	"github.com/xianleigirl/lotus/storage/pipeline/lib/nullreader"
+	"github.com/xianleigirl/lotus/storage/sealer/ffiwrapper/basicfs"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 func init() {

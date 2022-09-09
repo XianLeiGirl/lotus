@@ -1,4 +1,4 @@
-module github.com/filecoin-project/lotus/testplans/lotus-soup
+module github.com/xianleigirl/lotus/testplans/lotus-soup
 
 go 1.18
 
@@ -13,7 +13,7 @@ require (
 	github.com/filecoin-project/go-jsonrpc v0.1.5
 	github.com/filecoin-project/go-state-types v0.1.11-0.20220823184028-73c63d4127a4
 	github.com/filecoin-project/go-storedcounter v0.1.0
-	github.com/filecoin-project/lotus v0.0.0-00010101000000-000000000000
+	github.com/xianleigirl/lotus v0.0.0-00010101000000-000000000000
 	github.com/filecoin-project/specs-actors v0.9.15
 	github.com/google/uuid v1.3.0
 	github.com/gorilla/mux v1.8.0
@@ -337,6 +337,6 @@ require (
 // as an "extra source" in the manifest.
 replace github.com/filecoin-project/filecoin-ffi => ../../extern/filecoin-ffi
 
-replace github.com/filecoin-project/lotus => ../..
+replace github.com/xianleigirl/lotus => ../..
 
 replace github.com/filecoin-project/go-fil-markets => github.com/marcopolo/go-fil-markets v1.23.1-0.20220811180806-b8e84162b48e

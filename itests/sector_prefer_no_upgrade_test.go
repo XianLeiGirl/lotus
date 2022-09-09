@@ -11,11 +11,11 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/filecoin-project/go-state-types/network"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/itests/kit"
-	"github.com/filecoin-project/lotus/node/config"
-	sealing "github.com/filecoin-project/lotus/storage/pipeline"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/node/config"
+	sealing "github.com/xianleigirl/lotus/storage/pipeline"
 )
 
 func TestPreferNoUpgrade(t *testing.T) {

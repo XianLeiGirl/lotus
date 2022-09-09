@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	bstore "github.com/filecoin-project/lotus/blockstore"
+	bstore "github.com/xianleigirl/lotus/blockstore"
 )
 
 func (s *SplitStore) gcHotstore() {

@@ -6,8 +6,8 @@ import (
 
 	"github.com/filecoin-project/go-address"
 
-	"github.com/filecoin-project/lotus/genesis"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/genesis"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
 )
 
 var (

@@ -12,14 +12,14 @@ import (
 	"github.com/filecoin-project/go-state-types/exitcode"
 	"github.com/filecoin-project/go-state-types/network"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/itests/kit"
 )
 
 // these tests check that the versioned code in vm.transfer is functioning correctly across versions!
 // we reordered the checks to make sure that a transaction with too much money in it sent to yourself will fail instead of succeeding as a noop
-// more info in this PR! https://github.com/filecoin-project/lotus/pull/7637
+// more info in this PR! https://github.com/xianleigirl/lotus/pull/7637
 func TestSelfSentTxnV15(t *testing.T) {
 	//stm: @TOKEN_WALLET_SIGN_001, @CHAIN_MEMPOOL_PUSH_001
 	ctx := context.Background()

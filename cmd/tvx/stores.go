@@ -17,9 +17,9 @@ import (
 	format "github.com/ipfs/go-ipld-format"
 	"github.com/ipfs/go-merkledag"
 
-	"github.com/filecoin-project/lotus/api/v0api"
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/api/v0api"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
 )
 
 // Stores is a collection of the different stores and services that are needed

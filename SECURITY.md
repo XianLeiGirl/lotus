@@ -20,4 +20,4 @@ This is not an exhaustive list, but should provide some idea of what we consider
 
 ## Reporting a non security bug
 
-For non-security bugs, please simply file a GitHub [issue](https://github.com/filecoin-project/lotus/issues/new?template=bug_report.md). 
+For non-security bugs, please simply file a GitHub [issue](https://github.com/xianleigirl/lotus/issues/new?template=bug_report.md). 

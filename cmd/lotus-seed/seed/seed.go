@@ -24,13 +24,13 @@ import (
 	"github.com/filecoin-project/go-state-types/big"
 	market8 "github.com/filecoin-project/go-state-types/builtin/v8/market"
 
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/wallet/key"
-	"github.com/filecoin-project/lotus/genesis"
-	"github.com/filecoin-project/lotus/storage/paths"
-	"github.com/filecoin-project/lotus/storage/sealer/ffiwrapper"
-	"github.com/filecoin-project/lotus/storage/sealer/ffiwrapper/basicfs"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/wallet/key"
+	"github.com/xianleigirl/lotus/genesis"
+	"github.com/xianleigirl/lotus/storage/paths"
+	"github.com/xianleigirl/lotus/storage/sealer/ffiwrapper"
+	"github.com/xianleigirl/lotus/storage/sealer/ffiwrapper/basicfs"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 var log = logging.Logger("preseal")

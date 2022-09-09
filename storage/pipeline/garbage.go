@@ -5,7 +5,7 @@ import (
 
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 func (m *Sealing) PledgeSector(ctx context.Context) (storiface.SectorRef, error) {

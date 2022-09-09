@@ -9,9 +9,9 @@ import (
 	init0 "github.com/filecoin-project/specs-actors/actors/builtin/init"
 	multisig0 "github.com/filecoin-project/specs-actors/actors/builtin/multisig"
 
-	"github.com/filecoin-project/lotus/chain/actors"
-	init_ "github.com/filecoin-project/lotus/chain/actors/builtin/init"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/actors"
+	init_ "github.com/xianleigirl/lotus/chain/actors/builtin/init"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 type message0 struct{ from address.Address }

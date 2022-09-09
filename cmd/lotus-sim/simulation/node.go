@@ -9,15 +9,15 @@ import (
 	"go.uber.org/multierr"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/chain/consensus/filcns"
-	"github.com/filecoin-project/lotus/chain/stmgr"
-	"github.com/filecoin-project/lotus/chain/store"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/vm"
-	"github.com/filecoin-project/lotus/cmd/lotus-sim/simulation/mock"
-	"github.com/filecoin-project/lotus/cmd/lotus-sim/simulation/stages"
-	"github.com/filecoin-project/lotus/node/repo"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/chain/consensus/filcns"
+	"github.com/xianleigirl/lotus/chain/stmgr"
+	"github.com/xianleigirl/lotus/chain/store"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/vm"
+	"github.com/xianleigirl/lotus/cmd/lotus-sim/simulation/mock"
+	"github.com/xianleigirl/lotus/cmd/lotus-sim/simulation/stages"
+	"github.com/xianleigirl/lotus/node/repo"
 )
 
 // Node represents the local lotus node, or at least the part of it we care about.

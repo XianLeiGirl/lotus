@@ -9,8 +9,8 @@ import (
 	adt8 "github.com/filecoin-project/go-state-types/builtin/v8/util/adt"
 	verifreg8 "github.com/filecoin-project/go-state-types/builtin/v8/verifreg"
 
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
 )
 
 var _ State = (*state8)(nil)

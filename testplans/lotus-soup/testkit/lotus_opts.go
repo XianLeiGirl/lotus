@@ -6,12 +6,12 @@ import (
 	"github.com/libp2p/go-libp2p/core/peer"
 	ma "github.com/multiformats/go-multiaddr"
 
-	"github.com/filecoin-project/lotus/node"
-	"github.com/filecoin-project/lotus/node/config"
-	"github.com/filecoin-project/lotus/node/modules"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
-	"github.com/filecoin-project/lotus/node/modules/lp2p"
-	"github.com/filecoin-project/lotus/node/repo"
+	"github.com/xianleigirl/lotus/node"
+	"github.com/xianleigirl/lotus/node/config"
+	"github.com/xianleigirl/lotus/node/modules"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/node/modules/lp2p"
+	"github.com/xianleigirl/lotus/node/repo"
 )
 
 func withGenesis(gb []byte) node.Option {

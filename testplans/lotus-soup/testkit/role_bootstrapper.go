@@ -13,14 +13,14 @@ import (
 
 	"github.com/filecoin-project/go-state-types/big"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/gen"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/genesis"
-	"github.com/filecoin-project/lotus/node"
-	"github.com/filecoin-project/lotus/node/modules"
-	modtest "github.com/filecoin-project/lotus/node/modules/testing"
-	"github.com/filecoin-project/lotus/node/repo"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/gen"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/genesis"
+	"github.com/xianleigirl/lotus/node"
+	"github.com/xianleigirl/lotus/node/modules"
+	modtest "github.com/xianleigirl/lotus/node/modules/testing"
+	"github.com/xianleigirl/lotus/node/repo"
 )
 
 // Bootstrapper is a special kind of process that produces a genesis block with

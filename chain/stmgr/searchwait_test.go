@@ -7,9 +7,9 @@ import (
 
 	"github.com/filecoin-project/go-state-types/big"
 
-	"github.com/filecoin-project/lotus/chain/gen"
-	_ "github.com/filecoin-project/lotus/lib/sigs/bls"
-	_ "github.com/filecoin-project/lotus/lib/sigs/secp"
+	"github.com/xianleigirl/lotus/chain/gen"
+	_ "github.com/xianleigirl/lotus/lib/sigs/bls"
+	_ "github.com/xianleigirl/lotus/lib/sigs/secp"
 )
 
 func TestSearchForMessageReplacements(t *testing.T) {

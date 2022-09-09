@@ -14,10 +14,10 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/filecoin-project/go-state-types/big"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/chain/types/mock"
-	"github.com/filecoin-project/lotus/chain/wallet"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/types/mock"
+	"github.com/xianleigirl/lotus/chain/wallet"
 )
 
 func TestStat(t *testing.T) {

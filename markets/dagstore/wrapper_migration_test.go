@@ -18,7 +18,7 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	markettypes "github.com/filecoin-project/go-state-types/builtin/v8/market"
 
-	"github.com/filecoin-project/lotus/node/config"
+	"github.com/xianleigirl/lotus/node/config"
 )
 
 func TestShardRegistration(t *testing.T) {

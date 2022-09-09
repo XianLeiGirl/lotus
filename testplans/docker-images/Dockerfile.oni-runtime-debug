@@ -15,7 +15,7 @@ RUN paramfetch 8388608 /proof-parameters.json
 ARG LOTUS_COMMIT=b8deee048eaf850113e8626a73f64b17ba69a9f6
 
 ## for debug purposes
-RUN apt update && apt install -y mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config libhwloc-dev curl && git clone https://github.com/filecoin-project/lotus.git && cd lotus/ && git checkout ${LOTUS_COMMIT} && make clean && make all && make install
+RUN apt update && apt install -y mesa-opencl-icd ocl-icd-opencl-dev gcc git bzr jq pkg-config libhwloc-dev curl && git clone https://github.com/xianleigirl/lotus.git && cd lotus/ && git checkout ${LOTUS_COMMIT} && make clean && make all && make install
 
 FROM ubuntu:18.04
 

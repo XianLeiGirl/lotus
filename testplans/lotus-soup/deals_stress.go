@@ -11,8 +11,8 @@ import (
 
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/testplans/lotus-soup/testkit"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/testplans/lotus-soup/testkit"
 )
 
 func dealsStress(t *testkit.TestEnvironment) error {

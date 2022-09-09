@@ -16,9 +16,9 @@ import (
 	"go.uber.org/multierr"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/metrics"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/metrics"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
 )
 
 var log = logging.Logger("peermgr")

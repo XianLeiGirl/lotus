@@ -17,13 +17,13 @@ In this `docker-examples/` directory are community-contributed Docker and Docker
 
 ## Contributions
 
-- `miner-basic-busybox` - from @ldoublewood ([lotus PR 745](https://github.com/filecoin-project/lotus/pull/745))
+- `miner-basic-busybox` - from @ldoublewood ([lotus PR 745](https://github.com/xianleigirl/lotus/pull/745))
 - `api-local-arch` - from @mateodelnorte
 - `api-hosted-debian-nginx` - from @RTradeLtd
 
 #### More examples:
-- [Issue 1143](https://github.com/filecoin-project/lotus/issues/1143)
-- [PR 1047](https://github.com/filecoin-project/lotus/pull/1047/files)
+- [Issue 1143](https://github.com/xianleigirl/lotus/issues/1143)
+- [PR 1047](https://github.com/xianleigirl/lotus/pull/1047/files)
 
 ## Contributing
 

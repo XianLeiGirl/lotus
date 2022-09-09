@@ -6,8 +6,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/filecoin-project/lotus/cli"
-	"github.com/filecoin-project/lotus/itests/kit"
+	"github.com/xianleigirl/lotus/cli"
+	"github.com/xianleigirl/lotus/itests/kit"
 )
 
 // TestClient does a basic test to exercise the client CLI commands.

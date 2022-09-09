@@ -19,9 +19,9 @@ import (
 	"github.com/filecoin-project/go-state-types/crypto"
 	"github.com/filecoin-project/go-state-types/network"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/types"
-	"github.com/filecoin-project/lotus/lib/tablewriter"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/chain/types"
+	"github.com/xianleigirl/lotus/lib/tablewriter"
 )
 
 var walletCmd = &cli.Command{

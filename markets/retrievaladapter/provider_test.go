@@ -14,10 +14,10 @@ import (
 	testnet "github.com/filecoin-project/go-fil-markets/shared_testutil"
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/api"
-	"github.com/filecoin-project/lotus/api/mocks"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/market"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/api"
+	"github.com/xianleigirl/lotus/api/mocks"
+	"github.com/xianleigirl/lotus/chain/actors/builtin/market"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 func TestGetPricingInput(t *testing.T) {

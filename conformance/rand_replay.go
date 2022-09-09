@@ -8,7 +8,7 @@ import (
 	"github.com/filecoin-project/go-state-types/crypto"
 	"github.com/filecoin-project/test-vectors/schema"
 
-	"github.com/filecoin-project/lotus/chain/vm"
+	"github.com/xianleigirl/lotus/chain/vm"
 )
 
 type ReplayingRand struct {

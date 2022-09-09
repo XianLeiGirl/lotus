@@ -9,8 +9,8 @@ import (
 
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/metrics"
-	"github.com/filecoin-project/lotus/storage/pipeline/sealiface"
+	"github.com/xianleigirl/lotus/metrics"
+	"github.com/xianleigirl/lotus/storage/pipeline/sealiface"
 )
 
 type statSectorState int

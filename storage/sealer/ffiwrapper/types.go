@@ -3,8 +3,8 @@ package ffiwrapper
 import (
 	"context"
 
-	"github.com/filecoin-project/lotus/storage/sealer/ffiwrapper/basicfs"
-	"github.com/filecoin-project/lotus/storage/sealer/storiface"
+	"github.com/xianleigirl/lotus/storage/sealer/ffiwrapper/basicfs"
+	"github.com/xianleigirl/lotus/storage/sealer/storiface"
 )
 
 type SectorProvider interface {

@@ -6,8 +6,8 @@ import (
 	logging "github.com/ipfs/go-log/v2"
 	"github.com/urfave/cli/v2"
 
-	"github.com/filecoin-project/lotus/api"
-	cliutil "github.com/filecoin-project/lotus/cli/util"
+	"github.com/xianleigirl/lotus/api"
+	cliutil "github.com/xianleigirl/lotus/cli/util"
 )
 
 var log = logging.Logger("cli")

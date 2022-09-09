@@ -14,9 +14,9 @@ import (
 	provider "github.com/filecoin-project/index-provider"
 	"github.com/filecoin-project/index-provider/engine"
 
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/node/config"
-	"github.com/filecoin-project/lotus/node/modules/dtypes"
+	"github.com/xianleigirl/lotus/build"
+	"github.com/xianleigirl/lotus/node/config"
+	"github.com/xianleigirl/lotus/node/modules/dtypes"
 )
 
 type IdxProv struct {

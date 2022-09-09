@@ -15,7 +15,7 @@ import (
 	ipld "github.com/ipfs/go-ipld-format"
 	"github.com/stretchr/testify/require"
 
-	"github.com/filecoin-project/lotus/blockstore"
+	"github.com/xianleigirl/lotus/blockstore"
 )
 
 // TODO: move this to go-ipfs-blockstore.

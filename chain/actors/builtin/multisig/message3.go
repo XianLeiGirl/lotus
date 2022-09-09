@@ -9,9 +9,9 @@ import (
 	init3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/init"
 	multisig3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/multisig"
 
-	"github.com/filecoin-project/lotus/chain/actors"
-	init_ "github.com/filecoin-project/lotus/chain/actors/builtin/init"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/actors"
+	init_ "github.com/xianleigirl/lotus/chain/actors/builtin/init"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 type message3 struct{ message0 }

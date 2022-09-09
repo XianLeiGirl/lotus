@@ -8,8 +8,8 @@ import (
 
 	"github.com/filecoin-project/go-jsonrpc/auth"
 
-	apitypes "github.com/filecoin-project/lotus/api/types"
-	"github.com/filecoin-project/lotus/journal/alerting"
+	apitypes "github.com/xianleigirl/lotus/api/types"
+	"github.com/xianleigirl/lotus/journal/alerting"
 )
 
 //                       MODIFYING THE API INTERFACE

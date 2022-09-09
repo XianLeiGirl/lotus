@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/filecoin-project/go-state-types/abi"
 
-	"github.com/filecoin-project/lotus/build"
+	"github.com/xianleigirl/lotus/build"
 )
 
 // ProtocolCodenames is a table that summarises the protocol codenames that

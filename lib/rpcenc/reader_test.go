@@ -15,7 +15,7 @@ import (
 
 	"github.com/filecoin-project/go-jsonrpc"
 
-	"github.com/filecoin-project/lotus/storage/pipeline/lib/nullreader"
+	"github.com/xianleigirl/lotus/storage/pipeline/lib/nullreader"
 )
 
 type ReaderHandler struct {

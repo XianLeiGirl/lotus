@@ -15,7 +15,7 @@ import (
 
 	"github.com/filecoin-project/dagstore/mount"
 
-	mock_dagstore "github.com/filecoin-project/lotus/markets/dagstore/mocks"
+	mock_dagstore "github.com/xianleigirl/lotus/markets/dagstore/mocks"
 )
 
 func TestLotusMount(t *testing.T) {

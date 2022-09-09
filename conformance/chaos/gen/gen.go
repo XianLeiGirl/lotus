@@ -3,7 +3,7 @@ package main
 import (
 	gen "github.com/whyrusleeping/cbor-gen"
 
-	"github.com/filecoin-project/lotus/conformance/chaos"
+	"github.com/xianleigirl/lotus/conformance/chaos"
 )
 
 func main() {

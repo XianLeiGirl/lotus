@@ -4,8 +4,8 @@ import (
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/ipfs/go-cid"
 
-	"github.com/filecoin-project/lotus/chain/actors/adt"
-	"github.com/filecoin-project/lotus/chain/actors/builtin"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/chain/actors/builtin"
 
 {{if (le .v 7)}}
 	miner{{.v}} "github.com/filecoin-project/specs-actors{{.import}}actors/builtin/miner"

@@ -10,8 +10,8 @@ import (
 	"github.com/filecoin-project/go-state-types/builtin"
 	miner2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/miner"
 
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/types"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/types"
 )
 
 func (tm *TestMiner) SetControlAddresses(addrs ...addr.Address) {

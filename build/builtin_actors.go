@@ -18,9 +18,9 @@ import (
 	"github.com/ipld/go-car"
 	"golang.org/x/xerrors"
 
-	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/chain/actors"
-	"github.com/filecoin-project/lotus/chain/actors/adt"
+	"github.com/xianleigirl/lotus/blockstore"
+	"github.com/xianleigirl/lotus/chain/actors"
+	"github.com/xianleigirl/lotus/chain/actors/adt"
 )
 
 //go:embed actors/*.tar.zst

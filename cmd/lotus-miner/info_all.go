@@ -7,7 +7,7 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	lcli "github.com/filecoin-project/lotus/cli"
+	lcli "github.com/xianleigirl/lotus/cli"
 )
 
 var _test = false
