@@ -47,7 +47,7 @@ var replayCmd = &cli.Command{
 			Name:     "start-height",
 			Required: true,
 		},
-		&cli.IntFlag{
+		&cli.StringFlag{
 			Name:     "end-ts",
 			Required: true,
 		},
