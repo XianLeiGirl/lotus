@@ -141,13 +141,20 @@ var replayCmd = &cli.Command{
 
 			//validate
 			for _, r := range ires {
-				events, err := LoadEvents(ctx, components.CS, *r.MsgRct.EventsRoot)
-				if err != nil {
-					log.Errorf("load events for root %v failed: %v", r.MsgRct.EventsRoot.String(), err)
-					return err
-				}
+				if r.MsgRct != nil && r.MsgRct.Version() == types.MessageReceiptV1 {
+					eventsRoot := r.MsgRct.EventsRoot
+					if eventsRoot != nil {
+						events, err := LoadEvents(ctx, components.CS, *eventsRoot)
+						if err != nil {
+							log.Errorf("load events for root %v failed: %v", r.MsgRct.EventsRoot.String(), err)
+							return err
+						}
 
-				log.Infof("load events for root %v at %v successfly, events: %v", r.MsgRct.EventsRoot.String(), ts.Height(), events)
+						log.Infof("load events for root %v at %v successfly, events: %v", r.MsgRct.EventsRoot.String(), ts.Height(), events)
+					}
+
+					log.Infof("null eventsRoot")
+				}
 			}
 		}
 
