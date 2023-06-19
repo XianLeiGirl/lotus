@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"context"
 	"fmt"
+	"github.com/dtynn/dix"
 	amt4 "github.com/filecoin-project/go-amt-ipld/v4"
 	"github.com/filecoin-project/go-state-types/abi"
 	"github.com/filecoin-project/lotus/build"
@@ -29,6 +30,17 @@ import (
 	cbg "github.com/whyrusleeping/cbor-gen"
 	"go.uber.org/fx"
 	"net/http"
+)
+
+const (
+	invokeNone dix.Invoke = iota // nolint: varcheck,deadcode
+
+	invokeSetupGrafana
+	invokeSetupDebug
+	invokeSetupMetrics
+	invokeSetupTracing
+
+	invokePopulate
 )
 
 var replayCmd = &cli.Command{
@@ -109,9 +121,7 @@ var replayCmd = &cli.Command{
 		}
 
 		start := cctx.Int("start-height")
-		end := cctx.Int("end-height")
-
-		log.Info("start, end height", start, end)
+		log.Info("start, end height", start, ts.Height())
 
 		tss := []*types.TipSet{}
 
@@ -128,6 +138,8 @@ var replayCmd = &cli.Command{
 			j := got - i - 1
 			tss[i], tss[j] = tss[j], tss[i]
 		}
+
+		log.Infof("components: %v", components)
 
 		//replay
 		for _, ts := range tss {
@@ -162,8 +174,9 @@ var replayCmd = &cli.Command{
 	},
 }
 
-func Reject(cctx *cli.Context, target ...interface{}) node.Option {
-	return node.Options(
+func Reject(cctx *cli.Context, target ...interface{}) dix.Option {
+	return dix.Options(
+		dix.If(len(target) > 0, dix.Populate(invokePopulate, target...)),
 		ContextModule(context.Background()),
 		StateManager(),
 		InjectChainRepo(cctx), OfflineDataSource(),
@@ -172,34 +185,34 @@ func Reject(cctx *cli.Context, target ...interface{}) node.Option {
 
 type GlobalContext context.Context
 
-func ContextModule(ctx context.Context) node.Option {
-	return node.Options(node.Override(new(GlobalContext), ctx),
-		node.Override(new(*http.ServeMux), http.NewServeMux()),
-		node.Override(new(helpers.MetricsCtx), metricsi.CtxScope(ctx, "bell")))
+func ContextModule(ctx context.Context) dix.Option {
+	return dix.Options(dix.Override(new(GlobalContext), ctx),
+		dix.Override(new(*http.ServeMux), http.NewServeMux()),
+		dix.Override(new(helpers.MetricsCtx), metricsi.CtxScope(ctx, "bell")))
 }
 
-func StateManager() node.Option {
-	return node.Options(node.Override(new(vm.SyscallBuilder), vm.Syscalls),
-		node.Override(new(storiface.Verifier), ffiwrapper.ProofVerifier),
-		node.Override(new(journal.Journal), modules.OpenFilesystemJournal),
-		node.Override(new(journal.DisabledEvents), journal.EnvDisabledEvents),
-		node.Override(new(store.WeightFunc), filcns.Weight),
-		node.Override(new(*store.ChainStore), modules.ChainStore),
-		node.Override(new(stmgr.Executor), filcns.NewTipSetExecutor),
-		node.Override(new(dtypes.DrandSchedule), modules.BuiltinDrandConfig),
-		node.Override(new(dtypes.AfterGenesisSet), modules.SetGenesis),
-		node.Override(new(beacon.Schedule), modules.RandomSchedule),
-		node.Override(new(stmgr.UpgradeSchedule), modules.UpgradeSchedule),
-		node.Override(new(*stmgr.StateManager), stmgr.NewStateManager),
-		node.Override(new(modules.Genesis), modules.LoadGenesis(build.MaybeGenesis())),
-		node.Override(new(dtypes.ChainBlockstore), node.From(new(dtypes.BasicChainBlockstore))),
-		node.Override(new(dtypes.StateBlockstore), node.From(new(dtypes.BasicChainBlockstore))),
-		node.Override(new(dtypes.BaseBlockstore), node.From(new(dtypes.BasicChainBlockstore))),
-		node.Override(new(dtypes.ExposedBlockstore), node.From(new(dtypes.BasicChainBlockstore))))
+func StateManager() dix.Option {
+	return dix.Options(dix.Override(new(vm.SyscallBuilder), vm.Syscalls),
+		dix.Override(new(storiface.Verifier), ffiwrapper.ProofVerifier),
+		dix.Override(new(journal.Journal), modules.OpenFilesystemJournal),
+		dix.Override(new(journal.DisabledEvents), journal.EnvDisabledEvents),
+		dix.Override(new(store.WeightFunc), filcns.Weight),
+		dix.Override(new(*store.ChainStore), modules.ChainStore),
+		dix.Override(new(stmgr.Executor), filcns.NewTipSetExecutor),
+		dix.Override(new(dtypes.DrandSchedule), modules.BuiltinDrandConfig),
+		dix.Override(new(dtypes.AfterGenesisSet), modules.SetGenesis),
+		dix.Override(new(beacon.Schedule), modules.RandomSchedule),
+		dix.Override(new(stmgr.UpgradeSchedule), modules.UpgradeSchedule),
+		dix.Override(new(*stmgr.StateManager), stmgr.NewStateManager),
+		dix.Override(new(modules.Genesis), modules.LoadGenesis(build.MaybeGenesis())),
+		dix.Override(new(dtypes.ChainBlockstore), dix.From(new(dtypes.BasicChainBlockstore))),
+		dix.Override(new(dtypes.StateBlockstore), dix.From(new(dtypes.BasicChainBlockstore))),
+		dix.Override(new(dtypes.BaseBlockstore), dix.From(new(dtypes.BasicChainBlockstore))),
+		dix.Override(new(dtypes.ExposedBlockstore), dix.From(new(dtypes.BasicChainBlockstore))))
 }
 
-func InjectChainRepo(cctx *cli.Context) node.Option {
-	return node.Override(new(repo.LockedRepo), func(lc fx.Lifecycle) repo.LockedRepo {
+func InjectChainRepo(cctx *cli.Context) dix.Option {
+	return dix.Override(new(repo.LockedRepo), func(lc fx.Lifecycle) repo.LockedRepo {
 		r, err := repo.NewFS(cctx.String("dst-repo"))
 		if err != nil {
 			panic(fmt.Errorf("opening fs repo: %w", err))
@@ -218,13 +231,13 @@ func InjectChainRepo(cctx *cli.Context) node.Option {
 	})
 }
 
-func OfflineDataSource() node.Option {
-	return node.Options(
+func OfflineDataSource() dix.Option {
+	return dix.Options(
 		// Notice: we may need to use other datastore someday. It depends on
 		// the origin data structs.
-		node.Override(new(dtypes.AfterGenesisSet), modules.SetGenesis),
-		node.Override(new(dtypes.BasicChainBlockstore), modules.UniversalBlockstore),
-		node.Override(new(dtypes.MetadataDS), modules.Datastore(true)),
+		dix.Override(new(dtypes.AfterGenesisSet), modules.SetGenesis),
+		dix.Override(new(dtypes.BasicChainBlockstore), modules.UniversalBlockstore),
+		dix.Override(new(dtypes.MetadataDS), modules.Datastore(true)),
 	)
 }
 

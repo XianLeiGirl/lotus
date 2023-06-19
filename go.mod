@@ -24,6 +24,7 @@ require (
 	github.com/docker/go-units v0.5.0
 	github.com/drand/drand v1.3.0
 	github.com/drand/kyber v1.1.7
+	github.com/dtynn/dix v0.1.2
 	github.com/dustin/go-humanize v1.0.0
 	github.com/elastic/go-elasticsearch/v7 v7.14.0
 	github.com/elastic/go-sysinfo v1.7.0
