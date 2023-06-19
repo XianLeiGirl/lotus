@@ -43,17 +43,12 @@ var replayCmd = &cli.Command{
 			Name:     "dst-repo",
 			Required: true,
 		},
-		&cli.StringFlag{
-			Name:     "src-tail-ts",
-			Required: true,
-			Usage:    "the dst-tipset in src repo",
-		},
 		&cli.IntFlag{
 			Name:     "start-height",
 			Required: true,
 		},
 		&cli.IntFlag{
-			Name:     "end-height",
+			Name:     "end-ts",
 			Required: true,
 		},
 	},
@@ -103,7 +98,7 @@ var replayCmd = &cli.Command{
 		}
 
 		cst := store.NewChainStore(bs, bs, mds, filcns.Weight, j)
-		cids, err := lcli.ParseTipSetString(cctx.String("src-tail-ts"))
+		cids, err := lcli.ParseTipSetString(cctx.String("end-ts"))
 		if err != nil {
 			return err
 		}
@@ -121,9 +116,7 @@ var replayCmd = &cli.Command{
 		tss := []*types.TipSet{}
 
 		for ts.Height() >= abi.ChainEpoch(start) {
-			if ts.Height() <= abi.ChainEpoch(end) {
-				tss = append(tss, ts)
-			}
+			tss = append(tss, ts)
 			ts, err = cst.LoadTipSet(ctx, ts.Parents())
 			if err != nil {
 				return fmt.Errorf("load ts failed: %w", err)
