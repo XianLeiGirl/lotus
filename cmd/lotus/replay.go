@@ -17,7 +17,6 @@ import (
 	lcli "github.com/filecoin-project/lotus/cli"
 	"github.com/filecoin-project/lotus/journal"
 	"github.com/filecoin-project/lotus/journal/fsjournal"
-	"github.com/filecoin-project/lotus/node"
 	"github.com/filecoin-project/lotus/node/modules"
 	"github.com/filecoin-project/lotus/node/modules/dtypes"
 	"github.com/filecoin-project/lotus/node/modules/helpers"
@@ -72,7 +71,7 @@ var replayCmd = &cli.Command{
 			Stm *stmgr.StateManager
 		}
 
-		stopper, err := node.New(ctx, Reject(cctx, &components))
+		stopper, err := dix.New(ctx, Reject(cctx, &components))
 		defer stopper(ctx)
 		if err != nil {
 			return err
