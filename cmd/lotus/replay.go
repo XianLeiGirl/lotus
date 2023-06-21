@@ -83,7 +83,7 @@ var replayCmd = &cli.Command{
 			return err
 		}
 
-		components.CS.StoreEvents(false)
+		components.CS.StoreEvents(true)
 		log.Infof("IsStoringEvents: %v", components.Stm.ChainStore().IsStoringEvents())
 
 		client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(cctx.String("dsn")))
@@ -203,6 +203,7 @@ var replayCmd = &cli.Command{
 					for _, e := range eres {
 						eventsRoot := e.Root
 						if eventsRoot != nil {
+							log.Infof("eventsRoot: %v, events: %v", e.Root, e.Events)
 							events := e.Events
 							if len(events) == 0 {
 								log.Errorf("invalid events for root %v", eventsRoot)

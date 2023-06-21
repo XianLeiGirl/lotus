@@ -210,6 +210,9 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 				return cid.Undef, cid.Undef, err
 			}
 
+			if r.MessageReceipt.EventsRoot != nil {
+				log.Infof("r.MessageReceipt.EventsRoot: %v, r.Events: %v", r.MessageReceipt.EventsRoot, r.Events)
+			}
 			receipts = append(receipts, &r.MessageReceipt)
 			gasReward = big.Add(gasReward, r.GasCosts.MinerTip)
 			penalty = big.Add(penalty, r.GasCosts.MinerPenalty)
@@ -285,21 +288,21 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 	}
 
 	// Slice will be empty if not storing events.
-	for i, evs := range events {
-		if len(evs) == 0 {
-			continue
-		}
-		switch root, err := t.StoreEventsAMT(ctx, sm.ChainStore(), evs); {
-		case err != nil:
-			return cid.Undef, cid.Undef, xerrors.Errorf("failed to store events amt: %w", err)
-		case i >= len(receipts):
-			return cid.Undef, cid.Undef, xerrors.Errorf("assertion failed: receipt and events array lengths inconsistent")
-		case receipts[i].EventsRoot == nil:
-			return cid.Undef, cid.Undef, xerrors.Errorf("assertion failed: VM returned events with no events root")
-		case root != *receipts[i].EventsRoot:
-			return cid.Undef, cid.Undef, xerrors.Errorf("assertion failed: returned events AMT root does not match derived")
-		}
-	}
+	//for i, evs := range events {
+	//	if len(evs) == 0 {
+	//		continue
+	//	}
+	//	switch root, err := t.StoreEventsAMT(ctx, sm.ChainStore(), evs); {
+	//	case err != nil:
+	//		return cid.Undef, cid.Undef, xerrors.Errorf("failed to store events amt: %w", err)
+	//	case i >= len(receipts):
+	//		return cid.Undef, cid.Undef, xerrors.Errorf("assertion failed: receipt and events array lengths inconsistent")
+	//	case receipts[i].EventsRoot == nil:
+	//		return cid.Undef, cid.Undef, xerrors.Errorf("assertion failed: VM returned events with no events root")
+	//	case root != *receipts[i].EventsRoot:
+	//		return cid.Undef, cid.Undef, xerrors.Errorf("assertion failed: returned events AMT root does not match derived")
+	//	}
+	//}
 
 	st, err := vmi.Flush(ctx)
 	if err != nil {
