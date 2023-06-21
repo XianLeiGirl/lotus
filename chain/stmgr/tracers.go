@@ -55,3 +55,26 @@ func (m *messageFinder) MessageApplied(ctx context.Context, ts *types.TipSet, mc
 	}
 	return nil
 }
+
+type EventsResult struct {
+	Root   *cid.Cid
+	Events []types.Event
+	MCid   cid.Cid
+}
+
+var _ ExecMonitor = (*EventsTracer)(nil)
+
+type EventsTracer struct {
+	events *[]*EventsResult
+}
+
+func (e *EventsTracer) MessageApplied(ctx context.Context, ts *types.TipSet, mcid cid.Cid, msg *types.Message, ret *vm.ApplyRet, implicit bool) error {
+	er := &EventsResult{MCid: msg.Cid()}
+	if ret.MessageReceipt.EventsRoot != nil {
+		er.Root = ret.MessageReceipt.EventsRoot
+		er.Events = ret.Events
+	}
+
+	*e.events = append(*e.events, er)
+	return nil
+}

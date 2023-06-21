@@ -73,3 +73,12 @@ func (sm *StateManager) ExecutionTrace(ctx context.Context, ts *types.TipSet) (c
 	}
 	return st, invocTrace, nil
 }
+
+func (sm *StateManager) ExecutionTraceForEvents(ctx context.Context, ts *types.TipSet) (cid.Cid, []*EventsResult, error) {
+	var invocEvents []*EventsResult
+	st, err := sm.ExecutionTraceWithMonitor(ctx, ts, &EventsTracer{events: &invocEvents})
+	if err != nil {
+		return cid.Undef, nil, err
+	}
+	return st, invocEvents, nil
+}

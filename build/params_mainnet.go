@@ -16,7 +16,7 @@ import (
 )
 
 var DrandSchedule = map[abi.ChainEpoch]DrandEnum{
-	0:                  DrandIncentinet,
+	//0:                  DrandIncentinet,
 	UpgradeSmokeHeight: DrandMainnet,
 }
 
