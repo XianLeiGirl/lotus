@@ -53,6 +53,10 @@ var replayCmd = &cli.Command{
 			Name:     "name",
 			Required: true,
 		},
+		&cli.StringFlag{
+			Name:  "chain-storage-repo",
+			Usage: "repo path of chain storage",
+		},
 		&cli.Int64SliceFlag{
 			Name: "skip-heights",
 		},
