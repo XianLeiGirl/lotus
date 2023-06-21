@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	lcli "github.com/filecoin-project/lotus/cli"
+	"github.com/ipfs-force-community/londobell/lib/mgoutil/mcodec"
 	"github.com/mattn/go-isatty"
 	"github.com/urfave/cli/v2"
 	"os"
@@ -25,6 +26,7 @@ var AdvanceBlockCmd *cli.Command
 func main() {
 	api.RunningNodeType = api.NodeFull
 
+	mcodec.Setup()
 	lotuslog.SetupLogLevels()
 
 	local := []*cli.Command{
