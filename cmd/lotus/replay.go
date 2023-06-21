@@ -141,6 +141,8 @@ var replayCmd = &cli.Command{
 
 		log.Infof("start: %v, end: %v, len(tss): %v", start, ts.Height(), size)
 
+		log.Infof("parts: %v", parts)
+
 		lim := limiter.New(16)
 		var ewg multierror.Group
 
