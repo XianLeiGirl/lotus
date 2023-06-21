@@ -121,6 +121,11 @@ var replayCmd = &cli.Command{
 			tss[i], tss[j] = tss[j], tss[i]
 		}
 
+		//var parts [][]*types.TipSet
+		//for _, ts := range tss {
+		//
+		//}
+
 		log.Infof("start: %v, end: %v, len(tss): %v", start, ts.Height(), len(tss))
 
 		lim := limiter.New(16)
@@ -130,6 +135,7 @@ var replayCmd = &cli.Command{
 			doneCount = 0
 			lk        sync.Mutex
 		)
+
 		for _, ts := range tss {
 			ts := ts
 
@@ -199,7 +205,7 @@ var replayCmd = &cli.Command{
 						if eventsRoot != nil {
 							events := e.Events
 							if len(events) == 0 {
-								log.Errorf("invalid events")
+								log.Errorf("invalid events for root %v", eventsRoot)
 								panic(err)
 							}
 
