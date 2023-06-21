@@ -135,8 +135,9 @@ var replayCmd = &cli.Command{
 				end = size
 			}
 
-			parts = append(parts, tss[start:end])
-			tsDone = end
+			part := tss[start:end]
+			parts = append(parts, part)
+			tsDone += len(part)
 		}
 
 		log.Infof("start: %v, end: %v, len(tss): %v", start, ts.Height(), size)
@@ -254,7 +255,6 @@ var replayCmd = &cli.Command{
 							}
 
 							log.Infof("ts %v inserted: %v/%v, elapsed: %v\n", ts.Height(), len(ires.InsertedIDs), total, time.Now().Sub(starttime2).String())
-							return nil
 						}
 					} else {
 						log.Infof("skip tipset %v for no events", ts.Height())
