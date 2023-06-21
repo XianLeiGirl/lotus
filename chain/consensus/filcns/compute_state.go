@@ -2,6 +2,7 @@ package filcns
 
 import (
 	"context"
+	"github.com/filecoin-project/go-state-types/crypto"
 	"sync/atomic"
 
 	"github.com/ipfs/go-cid"
@@ -190,9 +191,9 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 	}
 
 	var (
-		receipts      []*types.MessageReceipt
-		storingEvents = sm.ChainStore().IsStoringEvents()
-		events        [][]types.Event
+		receipts []*types.MessageReceipt
+		//storingEvents = sm.ChainStore().IsStoringEvents()
+		//events        [][]types.Event
 		processedMsgs = make(map[cid.Cid]struct{})
 	)
 
@@ -205,26 +206,30 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 			if _, found := processedMsgs[m.Cid()]; found {
 				continue
 			}
-			r, err := vmi.ApplyMessage(ctx, cm)
-			if err != nil {
-				return cid.Undef, cid.Undef, err
-			}
 
-			receipts = append(receipts, &r.MessageReceipt)
-			gasReward = big.Add(gasReward, r.GasCosts.MinerTip)
-			penalty = big.Add(penalty, r.GasCosts.MinerPenalty)
-
-			if storingEvents {
-				// Appends nil when no events are returned to preserve positional alignment.
-				events = append(events, r.Events)
-			}
-
-			if em != nil {
-				if err := em.MessageApplied(ctx, ts, cm.Cid(), m, r, false); err != nil {
+			sm, ok := cm.(*types.SignedMessage)
+			if ok && sm.Signature.Type == crypto.SigTypeDelegated {
+				r, err := vmi.ApplyMessage(ctx, cm)
+				if err != nil {
 					return cid.Undef, cid.Undef, err
 				}
+
+				receipts = append(receipts, &r.MessageReceipt)
+				gasReward = big.Add(gasReward, r.GasCosts.MinerTip)
+				penalty = big.Add(penalty, r.GasCosts.MinerPenalty)
+
+				//if storingEvents {
+				//	// Appends nil when no events are returned to preserve positional alignment.
+				//	events = append(events, r.Events)
+				//}
+
+				if em != nil {
+					if err := em.MessageApplied(ctx, ts, cm.Cid(), m, r, false); err != nil {
+						return cid.Undef, cid.Undef, err
+					}
+				}
+				processedMsgs[m.Cid()] = struct{}{}
 			}
-			processedMsgs[m.Cid()] = struct{}{}
 		}
 
 		params, err := actors.SerializeParams(&reward.AwardBlockRewardParams{
