@@ -31,7 +31,6 @@ func main() {
 		DaemonCmd,
 		backupCmd,
 		configCmd,
-		replayCmd,
 	}
 	if AdvanceBlockCmd != nil {
 		local = append(local, AdvanceBlockCmd)
