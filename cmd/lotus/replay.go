@@ -83,8 +83,8 @@ var replayCmd = &cli.Command{
 			return err
 		}
 
-		//components.CS.StoreEvents(true)
-		//log.Infof("IsStoringEvents: %v", components.Stm.ChainStore().IsStoringEvents())
+		components.CS.StoreEvents(false)
+		log.Infof("IsStoringEvents: %v", components.Stm.ChainStore().IsStoringEvents())
 
 		client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(cctx.String("dsn")))
 		if err != nil {
@@ -153,7 +153,7 @@ var replayCmd = &cli.Command{
 				}
 
 				if skip {
-					log.Infof("skip tipset %v for existing int skipHeights", ts.Height())
+					log.Infof("skip tipset %v for existing in skipHeights", ts.Height())
 
 					lk.Lock()
 					doneCount++
