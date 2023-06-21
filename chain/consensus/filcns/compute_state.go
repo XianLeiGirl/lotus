@@ -210,9 +210,6 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 				return cid.Undef, cid.Undef, err
 			}
 
-			if r.MessageReceipt.EventsRoot != nil {
-				log.Infof("r.MessageReceipt.EventsRoot: %v, r.Events: %v", r.MessageReceipt.EventsRoot, r.Events)
-			}
 			receipts = append(receipts, &r.MessageReceipt)
 			gasReward = big.Add(gasReward, r.GasCosts.MinerTip)
 			penalty = big.Add(penalty, r.GasCosts.MinerPenalty)

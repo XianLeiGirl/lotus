@@ -121,12 +121,25 @@ var replayCmd = &cli.Command{
 			tss[i], tss[j] = tss[j], tss[i]
 		}
 
-		//var parts [][]*types.TipSet
-		//for _, ts := range tss {
-		//
-		//}
+		var (
+			parts  [][]*types.TipSet
+			size   = len(tss)
+			tsDone = 0
+			gap    = 120
+		)
 
-		log.Infof("start: %v, end: %v, len(tss): %v", start, ts.Height(), len(tss))
+		for tsDone < size {
+			start := tsDone
+			end := start + gap
+			if end > size {
+				end = size
+			}
+
+			parts = append(parts, tss[start:end])
+			tsDone = end + 1
+		}
+
+		log.Infof("start: %v, end: %v, len(tss): %v", start, ts.Height(), size)
 
 		lim := limiter.New(16)
 		var ewg multierror.Group
@@ -136,121 +149,128 @@ var replayCmd = &cli.Command{
 			lk        sync.Mutex
 		)
 
-		for _, ts := range tss {
-			ts := ts
+		for _, part := range parts {
+			part := part
+			starttime := time.Now()
+			log.Infof("[%v, %v] part begin", part[0].Height(), part[len(part)-1].Height())
 
-			ewg.Go(func() error {
-				if !lim.Acquire(context.TODO()) {
-					return nil
-				}
+			for _, ts := range part {
+				ts := ts
 
-				defer func() {
-					lim.Release(context.TODO())
-				}()
-
-				log.Infof("begin tipset %v", ts.Height())
-				start := time.Now()
-				skip := false
-				for _, h := range skipHeights {
-					if h == int64(ts.Height()) {
-						skip = true
-						break
+				ewg.Go(func() error {
+					if !lim.Acquire(context.TODO()) {
+						return nil
 					}
-				}
 
-				if skip {
-					log.Infof("skip tipset %v for existing in skipHeights", ts.Height())
+					defer func() {
+						lim.Release(context.TODO())
+					}()
 
-					lk.Lock()
-					doneCount++
-					log.Infof("handle tipset %v successfully, %v/%v", ts.Height(), doneCount, len(tss))
-					lk.Unlock()
-
-					return nil
-				}
-
-				starttime := time.Now()
-				cmsgs, err := components.CS.MessagesForTipset(ctx, ts)
-				if err != nil {
-					log.Error(err)
-					return err
-				}
-
-				log.Infof("get messages for tipset %v, elapsed: %v", ts.Height(), time.Now().Sub(starttime).String())
-
-				starttime = time.Now()
-				var exist = false
-				for _, cmsg := range cmsgs {
-					if smsg, ok := cmsg.(*types.SignedMessage); ok {
-						if smsg.Signature.Type == crypto.SigTypeDelegated {
-							exist = true
+					log.Infof("begin tipset %v", ts.Height())
+					start := time.Now()
+					skip := false
+					for _, h := range skipHeights {
+						if h == int64(ts.Height()) {
+							skip = true
 							break
 						}
 					}
-				}
 
-				if exist {
-					_, eres, err := components.Stm.ExecutionTraceForEvents(ctx, ts)
+					if skip {
+						log.Infof("skip tipset %v for existing in skipHeights", ts.Height())
+
+						lk.Lock()
+						doneCount++
+						log.Infof("handle tipset %v successfully, %v/%v", ts.Height(), doneCount, len(tss))
+						lk.Unlock()
+
+						return nil
+					}
+
+					starttime := time.Now()
+					cmsgs, err := components.CS.MessagesForTipset(ctx, ts)
 					if err != nil {
 						log.Error(err)
 						return err
 					}
 
-					log.Infof("execute tipset %v, len(eres): %v, elapsed: %v", ts.Height(), len(eres), time.Now().Sub(starttime))
+					log.Infof("get messages for tipset %v, elapsed: %v", ts.Height(), time.Now().Sub(starttime).String())
 
-					starttime2 := time.Now()
-					var eventsRes []*model.EventsRoot
-					for _, e := range eres {
-						eventsRoot := e.Root
-						if eventsRoot != nil {
-							log.Infof("eventsRoot: %v, events: %v", e.Root, e.Events)
-							events := e.Events
-							if len(events) == 0 {
-								log.Errorf("invalid events for root %v", eventsRoot)
-								panic(err)
-							}
-
-							etm, err := model.NewEventsRoot(*eventsRoot, events, ts.Height())
-							if err != nil {
-								log.Errorw("convert to model.EventsRoot", "eventsRoot", eventsRoot, "mcid", e.MCid.String(), "err", err.Error())
-							} else {
-								eventsRes = append(eventsRes, etm)
+					starttime = time.Now()
+					var exist = false
+					for _, cmsg := range cmsgs {
+						if smsg, ok := cmsg.(*types.SignedMessage); ok {
+							if smsg.Signature.Type == crypto.SigTypeDelegated {
+								exist = true
+								break
 							}
 						}
 					}
 
-					// insert
-					var docs []interface{}
-					for _, e := range eventsRes {
-						docs = append(docs, e)
-					}
-
-					total := len(docs)
-					if total > 0 {
-						ires, err := eventsRootCol.InsertMany(context.TODO(), docs, options.InsertMany().SetOrdered(false))
+					if exist {
+						_, eres, err := components.Stm.ExecutionTraceForEvents(ctx, ts)
 						if err != nil {
-							if actualErr := ExtractActualMgoErrors(err); actualErr != nil {
-								return actualErr
+							log.Error(err)
+							return err
+						}
+
+						log.Infof("execute tipset %v, len(eres): %v, elapsed: %v", ts.Height(), len(eres), time.Now().Sub(starttime))
+
+						starttime2 := time.Now()
+						var eventsRes []*model.EventsRoot
+						for _, e := range eres {
+							eventsRoot := e.Root
+							if eventsRoot != nil {
+								events := e.Events
+								if len(events) == 0 {
+									log.Errorf("invalid events for root %v", eventsRoot)
+									panic(err)
+								}
+
+								etm, err := model.NewEventsRoot(*eventsRoot, events, ts.Height())
+								if err != nil {
+									log.Errorw("convert to model.EventsRoot", "eventsRoot", eventsRoot, "mcid", e.MCid.String(), "err", err.Error())
+								} else {
+									eventsRes = append(eventsRes, etm)
+								}
 							}
 						}
 
-						log.Infof("ts %v inserted: %v/%v, elapsed: %v\n", ts.Height(), len(ires.InsertedIDs), total, time.Now().Sub(starttime2).String())
-						return nil
+						// insert
+						var docs []interface{}
+						for _, e := range eventsRes {
+							docs = append(docs, e)
+						}
+
+						total := len(docs)
+						if total > 0 {
+							ires, err := eventsRootCol.InsertMany(context.TODO(), docs, options.InsertMany().SetOrdered(false))
+							if err != nil {
+								if actualErr := ExtractActualMgoErrors(err); actualErr != nil {
+									return actualErr
+								}
+							}
+
+							log.Infof("ts %v inserted: %v/%v, elapsed: %v\n", ts.Height(), len(ires.InsertedIDs), total, time.Now().Sub(starttime2).String())
+							return nil
+						}
+					} else {
+						log.Infof("skip tipset %v for no events", ts.Height())
 					}
-				} else {
-					log.Infof("skip tipset %v for no events", ts.Height())
-				}
 
-				lk.Lock()
-				doneCount++
-				log.Infof("handle tipset %v successfully, elapsed: %v, %v/%v", ts.Height(), time.Now().Sub(start).String(), doneCount, len(tss))
-				lk.Unlock()
-				return nil
-			})
-		}
+					lk.Lock()
+					doneCount++
+					log.Infof("handle tipset %v successfully, elapsed: %v, %v/%v", ts.Height(), time.Now().Sub(start).String(), doneCount, len(tss))
+					lk.Unlock()
+					return nil
+				})
+			}
 
-		if err := ewg.Wait(); err != nil {
-			return fmt.Errorf("extract part: %w", err)
+			if err := ewg.Wait(); err != nil {
+				return fmt.Errorf("extract part: %w", err)
+			}
+
+			log.Infof("[%v, %v] part done, elapsed: %v", part[0].Height(), part[len(part)-1].Height(), time.Now().Sub(starttime).String())
 		}
 
 		return nil
