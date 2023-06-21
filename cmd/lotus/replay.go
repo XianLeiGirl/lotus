@@ -136,7 +136,7 @@ var replayCmd = &cli.Command{
 			}
 
 			parts = append(parts, tss[start:end])
-			tsDone = end + 1
+			tsDone = end
 		}
 
 		log.Infof("start: %v, end: %v, len(tss): %v", start, ts.Height(), size)
