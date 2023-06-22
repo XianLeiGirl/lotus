@@ -3,21 +3,16 @@ package filcns
 import (
 	"context"
 	"github.com/filecoin-project/go-state-types/crypto"
-	"sync/atomic"
-
 	"github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 	cbg "github.com/whyrusleeping/cbor-gen"
-	"go.opencensus.io/stats"
 	"go.opencensus.io/trace"
 	"golang.org/x/xerrors"
 
 	amt4 "github.com/filecoin-project/go-amt-ipld/v4"
 	"github.com/filecoin-project/go-state-types/abi"
 	actorstypes "github.com/filecoin-project/go-state-types/actors"
-	"github.com/filecoin-project/go-state-types/big"
 	exported0 "github.com/filecoin-project/specs-actors/actors/builtin/exported"
-	blockadt "github.com/filecoin-project/specs-actors/actors/util/adt"
 	exported2 "github.com/filecoin-project/specs-actors/v2/actors/builtin/exported"
 	exported3 "github.com/filecoin-project/specs-actors/v3/actors/builtin/exported"
 	exported4 "github.com/filecoin-project/specs-actors/v4/actors/builtin/exported"
@@ -26,11 +21,7 @@ import (
 	exported7 "github.com/filecoin-project/specs-actors/v7/actors/builtin/exported"
 
 	"github.com/filecoin-project/lotus/blockstore"
-	"github.com/filecoin-project/lotus/build"
-	"github.com/filecoin-project/lotus/chain/actors"
 	"github.com/filecoin-project/lotus/chain/actors/builtin"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/cron"
-	"github.com/filecoin-project/lotus/chain/actors/builtin/reward"
 	"github.com/filecoin-project/lotus/chain/rand"
 	"github.com/filecoin-project/lotus/chain/stmgr"
 	"github.com/filecoin-project/lotus/chain/store"
@@ -114,73 +105,73 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 		return sm.VMConstructor()(ctx, vmopt)
 	}
 
-	runCron := func(vmCron vm.Interface, epoch abi.ChainEpoch) error {
-		cronMsg := &types.Message{
-			To:         cron.Address,
-			From:       builtin.SystemActorAddr,
-			Nonce:      uint64(epoch),
-			Value:      types.NewInt(0),
-			GasFeeCap:  types.NewInt(0),
-			GasPremium: types.NewInt(0),
-			GasLimit:   build.BlockGasLimit * 10000, // Make super sure this is never too little
-			Method:     cron.Methods.EpochTick,
-			Params:     nil,
-		}
-		ret, err := vmCron.ApplyImplicitMessage(ctx, cronMsg)
-		if err != nil {
-			return xerrors.Errorf("running cron: %w", err)
-		}
-
-		if em != nil {
-			if err := em.MessageApplied(ctx, ts, cronMsg.Cid(), cronMsg, ret, true); err != nil {
-				return xerrors.Errorf("callback failed on cron message: %w", err)
-			}
-		}
-		if ret.ExitCode != 0 {
-			return xerrors.Errorf("cron exit was non-zero: %d", ret.ExitCode)
-		}
-
-		return nil
-	}
-
-	// May get filled with the genesis block header if there are null rounds
-	// for which to backfill cron execution.
-	var genesis *types.BlockHeader
-
-	// There were null rounds in between the current epoch and the parent epoch.
-	for i := parentEpoch; i < epoch; i++ {
-		var err error
-		if i > parentEpoch {
-			if genesis == nil {
-				if genesis, err = sm.ChainStore().GetGenesis(ctx); err != nil {
-					return cid.Undef, cid.Undef, xerrors.Errorf("failed to get genesis when backfilling null rounds: %w", err)
-				}
-			}
-
-			ts := genesis.Timestamp + build.BlockDelaySecs*(uint64(i))
-			vmCron, err := makeVm(pstate, i, ts)
-			if err != nil {
-				return cid.Undef, cid.Undef, xerrors.Errorf("making cron vm: %w", err)
-			}
-
-			// run cron for null rounds if any
-			if err = runCron(vmCron, i); err != nil {
-				return cid.Undef, cid.Undef, xerrors.Errorf("running cron: %w", err)
-			}
-
-			pstate, err = vmCron.Flush(ctx)
-			if err != nil {
-				return cid.Undef, cid.Undef, xerrors.Errorf("flushing cron vm: %w", err)
-			}
-		}
-
-		// handle state forks
-		// XXX: The state tree
-		pstate, err = sm.HandleStateForks(ctx, pstate, i, em, ts)
-		if err != nil {
-			return cid.Undef, cid.Undef, xerrors.Errorf("error handling state forks: %w", err)
-		}
-	}
+	//runCron := func(vmCron vm.Interface, epoch abi.ChainEpoch) error {
+	//	cronMsg := &types.Message{
+	//		To:         cron.Address,
+	//		From:       builtin.SystemActorAddr,
+	//		Nonce:      uint64(epoch),
+	//		Value:      types.NewInt(0),
+	//		GasFeeCap:  types.NewInt(0),
+	//		GasPremium: types.NewInt(0),
+	//		GasLimit:   build.BlockGasLimit * 10000, // Make super sure this is never too little
+	//		Method:     cron.Methods.EpochTick,
+	//		Params:     nil,
+	//	}
+	//	ret, err := vmCron.ApplyImplicitMessage(ctx, cronMsg)
+	//	if err != nil {
+	//		return xerrors.Errorf("running cron: %w", err)
+	//	}
+	//
+	//	if em != nil {
+	//		if err := em.MessageApplied(ctx, ts, cronMsg.Cid(), cronMsg, ret, true); err != nil {
+	//			return xerrors.Errorf("callback failed on cron message: %w", err)
+	//		}
+	//	}
+	//	if ret.ExitCode != 0 {
+	//		return xerrors.Errorf("cron exit was non-zero: %d", ret.ExitCode)
+	//	}
+	//
+	//	return nil
+	//}
+	//
+	//// May get filled with the genesis block header if there are null rounds
+	//// for which to backfill cron execution.
+	//var genesis *types.BlockHeader
+	//
+	//// There were null rounds in between the current epoch and the parent epoch.
+	//for i := parentEpoch; i < epoch; i++ {
+	//	var err error
+	//	if i > parentEpoch {
+	//		if genesis == nil {
+	//			if genesis, err = sm.ChainStore().GetGenesis(ctx); err != nil {
+	//				return cid.Undef, cid.Undef, xerrors.Errorf("failed to get genesis when backfilling null rounds: %w", err)
+	//			}
+	//		}
+	//
+	//		ts := genesis.Timestamp + build.BlockDelaySecs*(uint64(i))
+	//		vmCron, err := makeVm(pstate, i, ts)
+	//		if err != nil {
+	//			return cid.Undef, cid.Undef, xerrors.Errorf("making cron vm: %w", err)
+	//		}
+	//
+	//		// run cron for null rounds if any
+	//		if err = runCron(vmCron, i); err != nil {
+	//			return cid.Undef, cid.Undef, xerrors.Errorf("running cron: %w", err)
+	//		}
+	//
+	//		pstate, err = vmCron.Flush(ctx)
+	//		if err != nil {
+	//			return cid.Undef, cid.Undef, xerrors.Errorf("flushing cron vm: %w", err)
+	//		}
+	//	}
+	//
+	//	// handle state forks
+	//	// XXX: The state tree
+	//	pstate, err = sm.HandleStateForks(ctx, pstate, i, em, ts)
+	//	if err != nil {
+	//		return cid.Undef, cid.Undef, xerrors.Errorf("error handling state forks: %w", err)
+	//	}
+	//}
 
 	partDone()
 	partDone = metrics.Timer(ctx, metrics.VMApplyMessages)
@@ -191,15 +182,15 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 	}
 
 	var (
-		receipts []*types.MessageReceipt
+		//receipts []*types.MessageReceipt
 		//storingEvents = sm.ChainStore().IsStoringEvents()
 		//events        [][]types.Event
 		processedMsgs = make(map[cid.Cid]struct{})
 	)
 
 	for _, b := range bms {
-		penalty := types.NewInt(0)
-		gasReward := big.Zero()
+		//penalty := types.NewInt(0)
+		//gasReward := big.Zero()
 
 		for _, cm := range append(b.BlsMessages, b.SecpkMessages...) {
 			m := cm.VMMessage()
@@ -214,9 +205,9 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 					return cid.Undef, cid.Undef, err
 				}
 
-				receipts = append(receipts, &r.MessageReceipt)
-				gasReward = big.Add(gasReward, r.GasCosts.MinerTip)
-				penalty = big.Add(penalty, r.GasCosts.MinerPenalty)
+				//receipts = append(receipts, &r.MessageReceipt)
+				//gasReward = big.Add(gasReward, r.GasCosts.MinerTip)
+				//penalty = big.Add(penalty, r.GasCosts.MinerPenalty)
 
 				//if storingEvents {
 				//	// Appends nil when no events are returned to preserve positional alignment.
@@ -232,62 +223,62 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 			}
 		}
 
-		params, err := actors.SerializeParams(&reward.AwardBlockRewardParams{
-			Miner:     b.Miner,
-			Penalty:   penalty,
-			GasReward: gasReward,
-			WinCount:  b.WinCount,
-		})
-		if err != nil {
-			return cid.Undef, cid.Undef, xerrors.Errorf("failed to serialize award params: %w", err)
-		}
-
-		rwMsg := &types.Message{
-			From:       builtin.SystemActorAddr,
-			To:         reward.Address,
-			Nonce:      uint64(epoch),
-			Value:      types.NewInt(0),
-			GasFeeCap:  types.NewInt(0),
-			GasPremium: types.NewInt(0),
-			GasLimit:   1 << 30,
-			Method:     reward.Methods.AwardBlockReward,
-			Params:     params,
-		}
-		ret, actErr := vmi.ApplyImplicitMessage(ctx, rwMsg)
-		if actErr != nil {
-			return cid.Undef, cid.Undef, xerrors.Errorf("failed to apply reward message for miner %s: %w", b.Miner, actErr)
-		}
-		if em != nil {
-			if err := em.MessageApplied(ctx, ts, rwMsg.Cid(), rwMsg, ret, true); err != nil {
-				return cid.Undef, cid.Undef, xerrors.Errorf("callback failed on reward message: %w", err)
-			}
-		}
-
-		if ret.ExitCode != 0 {
-			return cid.Undef, cid.Undef, xerrors.Errorf("reward application message failed (exit %d): %s", ret.ExitCode, ret.ActorErr)
-		}
+		//params, err := actors.SerializeParams(&reward.AwardBlockRewardParams{
+		//	Miner:     b.Miner,
+		//	Penalty:   penalty,
+		//	GasReward: gasReward,
+		//	WinCount:  b.WinCount,
+		//})
+		//if err != nil {
+		//	return cid.Undef, cid.Undef, xerrors.Errorf("failed to serialize award params: %w", err)
+		//}
+		//
+		//rwMsg := &types.Message{
+		//	From:       builtin.SystemActorAddr,
+		//	To:         reward.Address,
+		//	Nonce:      uint64(epoch),
+		//	Value:      types.NewInt(0),
+		//	GasFeeCap:  types.NewInt(0),
+		//	GasPremium: types.NewInt(0),
+		//	GasLimit:   1 << 30,
+		//	Method:     reward.Methods.AwardBlockReward,
+		//	Params:     params,
+		//}
+		//ret, actErr := vmi.ApplyImplicitMessage(ctx, rwMsg)
+		//if actErr != nil {
+		//	return cid.Undef, cid.Undef, xerrors.Errorf("failed to apply reward message for miner %s: %w", b.Miner, actErr)
+		//}
+		//if em != nil {
+		//	if err := em.MessageApplied(ctx, ts, rwMsg.Cid(), rwMsg, ret, true); err != nil {
+		//		return cid.Undef, cid.Undef, xerrors.Errorf("callback failed on reward message: %w", err)
+		//	}
+		//}
+		//
+		//if ret.ExitCode != 0 {
+		//	return cid.Undef, cid.Undef, xerrors.Errorf("reward application message failed (exit %d): %s", ret.ExitCode, ret.ActorErr)
+		//}
 	}
 
-	partDone()
-	partDone = metrics.Timer(ctx, metrics.VMApplyCron)
-
-	if err := runCron(vmi, epoch); err != nil {
-		return cid.Cid{}, cid.Cid{}, err
-	}
-
-	partDone()
-	partDone = metrics.Timer(ctx, metrics.VMApplyFlush)
-
-	rectarr := blockadt.MakeEmptyArray(sm.ChainStore().ActorStore(ctx))
-	for i, receipt := range receipts {
-		if err := rectarr.Set(uint64(i), receipt); err != nil {
-			return cid.Undef, cid.Undef, xerrors.Errorf("failed to build receipts amt: %w", err)
-		}
-	}
-	rectroot, err := rectarr.Root()
-	if err != nil {
-		return cid.Undef, cid.Undef, xerrors.Errorf("failed to build receipts amt: %w", err)
-	}
+	//partDone()
+	//partDone = metrics.Timer(ctx, metrics.VMApplyCron)
+	//
+	//if err := runCron(vmi, epoch); err != nil {
+	//	return cid.Cid{}, cid.Cid{}, err
+	//}
+	//
+	//partDone()
+	//partDone = metrics.Timer(ctx, metrics.VMApplyFlush)
+	//
+	//rectarr := blockadt.MakeEmptyArray(sm.ChainStore().ActorStore(ctx))
+	//for i, receipt := range receipts {
+	//	if err := rectarr.Set(uint64(i), receipt); err != nil {
+	//		return cid.Undef, cid.Undef, xerrors.Errorf("failed to build receipts amt: %w", err)
+	//	}
+	//}
+	//rectroot, err := rectarr.Root()
+	//if err != nil {
+	//	return cid.Undef, cid.Undef, xerrors.Errorf("failed to build receipts amt: %w", err)
+	//}
 
 	// Slice will be empty if not storing events.
 	//for i, evs := range events {
@@ -306,15 +297,15 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 	//	}
 	//}
 
-	st, err := vmi.Flush(ctx)
-	if err != nil {
-		return cid.Undef, cid.Undef, xerrors.Errorf("vm flush failed: %w", err)
-	}
+	//st, err := vmi.Flush(ctx)
+	//if err != nil {
+	//	return cid.Undef, cid.Undef, xerrors.Errorf("vm flush failed: %w", err)
+	//}
+	//
+	//stats.Record(ctx, metrics.VMSends.M(int64(atomic.LoadUint64(&vm.StatSends))),
+	//	metrics.VMApplied.M(int64(atomic.LoadUint64(&vm.StatApplied))))
 
-	stats.Record(ctx, metrics.VMSends.M(int64(atomic.LoadUint64(&vm.StatSends))),
-		metrics.VMApplied.M(int64(atomic.LoadUint64(&vm.StatApplied))))
-
-	return st, rectroot, nil
+	return cid.Undef, cid.Undef, nil
 }
 
 func (t *TipSetExecutor) ExecuteTipSet(ctx context.Context,

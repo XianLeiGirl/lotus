@@ -152,8 +152,14 @@ var replayCmd = &cli.Command{
 
 		for _, part := range parts {
 			part := part
+			if len(part) == 0 {
+				continue
+			}
+
+			alog := log.With("range", fmt.Sprintf("[%v, %v]", part[0].Height(), part[len(part)-1].Height()))
+
 			starttime := time.Now()
-			log.Infof("[%v, %v] part begin", part[0].Height(), part[len(part)-1].Height())
+			alog.Infof("[%v, %v] part begin", part[0].Height(), part[len(part)-1].Height())
 
 			for _, ts := range part {
 				ts := ts
@@ -167,7 +173,7 @@ var replayCmd = &cli.Command{
 						lim.Release(context.TODO())
 					}()
 
-					log.Infof("begin tipset %v", ts.Height())
+					alog.Infof("begin tipset %v", ts.Height())
 					start := time.Now()
 					skip := false
 					for _, h := range skipHeights {
@@ -178,11 +184,11 @@ var replayCmd = &cli.Command{
 					}
 
 					if skip {
-						log.Infof("skip tipset %v for existing in skipHeights", ts.Height())
+						alog.Infof("skip tipset %v for existing in skipHeights", ts.Height())
 
 						lk.Lock()
 						doneCount++
-						log.Infof("handle tipset %v successfully, %v/%v", ts.Height(), doneCount, len(tss))
+						alog.Infof("handle tipset %v successfully, %v/%v", ts.Height(), doneCount, len(tss))
 						lk.Unlock()
 
 						return nil
@@ -191,11 +197,11 @@ var replayCmd = &cli.Command{
 					starttime := time.Now()
 					cmsgs, err := components.CS.MessagesForTipset(ctx, ts)
 					if err != nil {
-						log.Error(err)
+						alog.Error(err)
 						return err
 					}
 
-					log.Infof("get messages for tipset %v, elapsed: %v", ts.Height(), time.Now().Sub(starttime).String())
+					alog.Infof("get messages for tipset %v, elapsed: %v", ts.Height(), time.Now().Sub(starttime).String())
 
 					starttime = time.Now()
 					var exist = false
@@ -211,11 +217,11 @@ var replayCmd = &cli.Command{
 					if exist {
 						_, eres, err := components.Stm.ExecutionTraceForEvents(ctx, ts)
 						if err != nil {
-							log.Error(err)
+							alog.Error(err)
 							return err
 						}
 
-						log.Infof("execute tipset %v, len(eres): %v, elapsed: %v", ts.Height(), len(eres), time.Now().Sub(starttime))
+						alog.Infof("execute tipset %v, len(eres): %v, elapsed: %v, eres: %+v", ts.Height(), len(eres), time.Now().Sub(starttime), eres)
 
 						starttime2 := time.Now()
 						var eventsRes []*model.EventsRoot
@@ -224,13 +230,13 @@ var replayCmd = &cli.Command{
 							if eventsRoot != nil {
 								events := e.Events
 								if len(events) == 0 {
-									log.Errorf("invalid events for root %v", eventsRoot)
+									alog.Errorf("invalid events for root %v", eventsRoot)
 									panic(err)
 								}
 
 								etm, err := model.NewEventsRoot(*eventsRoot, events, ts.Height())
 								if err != nil {
-									log.Errorw("convert to model.EventsRoot", "eventsRoot", eventsRoot, "mcid", e.MCid.String(), "err", err.Error())
+									alog.Errorw("convert to model.EventsRoot", "eventsRoot", eventsRoot, "mcid", e.MCid.String(), "err", err.Error())
 								} else {
 									eventsRes = append(eventsRes, etm)
 								}
@@ -248,19 +254,20 @@ var replayCmd = &cli.Command{
 							ires, err := eventsRootCol.InsertMany(context.TODO(), docs, options.InsertMany().SetOrdered(false))
 							if err != nil {
 								if actualErr := ExtractActualMgoErrors(err); actualErr != nil {
+									alog.Error(err)
 									return actualErr
 								}
 							}
 
-							log.Infof("ts %v inserted: %v/%v, elapsed: %v\n", ts.Height(), len(ires.InsertedIDs), total, time.Now().Sub(starttime2).String())
+							alog.Infof("ts %v inserted: %v/%v, elapsed: %v\n", ts.Height(), len(ires.InsertedIDs), total, time.Now().Sub(starttime2).String())
 						}
 					} else {
-						log.Infof("skip tipset %v for no events", ts.Height())
+						alog.Infof("skip tipset %v for no events", ts.Height())
 					}
 
 					lk.Lock()
 					doneCount++
-					log.Infof("handle tipset %v successfully, elapsed: %v, %v/%v", ts.Height(), time.Now().Sub(start).String(), doneCount, len(tss))
+					alog.Infof("handle tipset %v successfully, elapsed: %v, %v/%v", ts.Height(), time.Now().Sub(start).String(), doneCount, len(tss))
 					lk.Unlock()
 					return nil
 				})
@@ -270,8 +277,10 @@ var replayCmd = &cli.Command{
 				return fmt.Errorf("extract part: %w", err)
 			}
 
-			log.Infof("[%v, %v] part done, elapsed: %v", part[0].Height(), part[len(part)-1].Height(), time.Now().Sub(starttime).String())
+			alog.Infof("[%v, %v] part done, elapsed: %v", part[0].Height(), part[len(part)-1].Height(), time.Now().Sub(starttime).String())
 		}
+
+		log.Infof("replay done")
 
 		return nil
 	},
