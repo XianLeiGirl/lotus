@@ -260,9 +260,11 @@ var replayCmd = &cli.Command{
 							}
 
 							alog.Infof("ts %v inserted: %v/%v, elapsed: %v\n", ts.Height(), len(ires.InsertedIDs), total, time.Now().Sub(starttime2).String())
+						} else {
+							alog.Infof("skip tipset %v for no events", ts.Height())
 						}
 					} else {
-						alog.Infof("skip tipset %v for no events", ts.Height())
+						alog.Infof("skip tipset %v for no SigTypeDelegated", ts.Height())
 					}
 
 					lk.Lock()
