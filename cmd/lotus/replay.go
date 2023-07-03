@@ -105,6 +105,9 @@ var replayCmd = &cli.Command{
 		}
 
 		start := cctx.Int("start-height")
+
+		log.Infof("start: %v, end: %v", start, ts.Height())
+
 		tss := []*types.TipSet{}
 
 		for ts.Height() >= abi.ChainEpoch(start) {
@@ -140,7 +143,7 @@ var replayCmd = &cli.Command{
 			tsDone += len(part)
 		}
 
-		log.Infof("start: %v, end: %v, len(tss): %v", start, ts.Height(), size)
+		log.Infof("len(tss): %v", size)
 
 		lim := limiter.New(16)
 		var ewg multierror.Group
