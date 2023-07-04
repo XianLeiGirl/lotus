@@ -79,7 +79,7 @@ require (
 	github.com/hashicorp/raft-boltdb v0.0.0-20171010151810-6e5ba93211ea
 	github.com/icza/backscanner v0.0.0-20210726202459-ac2ffc679f94
 	github.com/influxdata/influxdb1-client v0.0.0-20200827194710-b269163b24ab
-	github.com/ipfs-force-community/londobell v0.1.1-0.20230621081640-34bb5e024264
+	github.com/ipfs-force-community/londobell v0.1.1-0.20230703094159-603ca06f01b3
 	github.com/ipfs/bbloom v0.0.4
 	github.com/ipfs/go-blockservice v0.4.0
 	github.com/ipfs/go-cid v0.3.2

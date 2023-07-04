@@ -57,9 +57,10 @@ func (m *messageFinder) MessageApplied(ctx context.Context, ts *types.TipSet, mc
 }
 
 type EventsResult struct {
-	Root   *cid.Cid
-	Events []types.Event
-	MCid   cid.Cid
+	Root      *cid.Cid
+	Events    []types.Event
+	MCid      cid.Cid
+	SignedCid cid.Cid
 }
 
 var _ ExecMonitor = (*EventsTracer)(nil)
@@ -69,7 +70,7 @@ type EventsTracer struct {
 }
 
 func (e *EventsTracer) MessageApplied(ctx context.Context, ts *types.TipSet, mcid cid.Cid, msg *types.Message, ret *vm.ApplyRet, implicit bool) error {
-	er := &EventsResult{MCid: msg.Cid()}
+	er := &EventsResult{SignedCid: mcid, MCid: msg.Cid()}
 	if ret.MessageReceipt.EventsRoot != nil {
 		er.Root = ret.MessageReceipt.EventsRoot
 		er.Events = ret.Events

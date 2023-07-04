@@ -710,6 +710,8 @@ github.com/influxdata/influxdb1-client v0.0.0-20200827194710-b269163b24ab h1:HqW
 github.com/influxdata/influxdb1-client v0.0.0-20200827194710-b269163b24ab/go.mod h1:qj24IKcXYK6Iy9ceXlo3Tc+vtHo9lIhSX5JddghvEPo=
 github.com/ipfs-force-community/londobell v0.1.1-0.20230621081640-34bb5e024264 h1:/SATexIRVOQ1w9BP2iNE6uGJUHXcvx7EBNurMlgta0Y=
 github.com/ipfs-force-community/londobell v0.1.1-0.20230621081640-34bb5e024264/go.mod h1:MP71/Py+0Rh1dlV0uhHa5UxEmD8Ei2kEQFxrPxK7Wiw=
+github.com/ipfs-force-community/londobell v0.1.1-0.20230703094159-603ca06f01b3 h1:hZIRKRxlTiqPYmuXwrEvOxSCboqnmUzYe1Q/FN494aw=
+github.com/ipfs-force-community/londobell v0.1.1-0.20230703094159-603ca06f01b3/go.mod h1:MP71/Py+0Rh1dlV0uhHa5UxEmD8Ei2kEQFxrPxK7Wiw=
 github.com/ipfs/bbloom v0.0.1/go.mod h1:oqo8CVWsJFMOZqTglBG4wydCE4IQA/G2/SEofB0rjUI=
 github.com/ipfs/bbloom v0.0.4 h1:Gi+8EGJ2y5qiD5FbsbpX/TMNcJw8gSqr7eyjHa4Fhvs=
 github.com/ipfs/bbloom v0.0.4/go.mod h1:cS9YprKXpoZ9lT0n/Mw/a6/aFV6DTjTLYHeA+gyqMG0=
