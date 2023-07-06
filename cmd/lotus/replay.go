@@ -20,7 +20,6 @@ import (
 	"github.com/dtynn/dix"
 	amt4 "github.com/filecoin-project/go-amt-ipld/v4"
 	"github.com/filecoin-project/go-state-types/abi"
-	"github.com/filecoin-project/go-state-types/crypto"
 	"github.com/filecoin-project/lotus/chain/stmgr"
 	"github.com/filecoin-project/lotus/chain/store"
 	"github.com/filecoin-project/lotus/chain/types"
@@ -217,15 +216,15 @@ var eventsRootCmd = &cli.Command{
 					alog.Infof("get messages for tipset %v, elapsed: %v", ts.Height(), time.Now().Sub(starttime).String())
 
 					starttime = time.Now()
-					var exist = false
-					for _, cmsg := range cmsgs {
-						if smsg, ok := cmsg.(*types.SignedMessage); ok {
-							if smsg.Signature.Type == crypto.SigTypeDelegated {
-								exist = true
-								break
-							}
-						}
-					}
+					var exist = true
+					//for _, cmsg := range cmsgs {
+					//	if smsg, ok := cmsg.(*types.SignedMessage); ok {
+					//		if smsg.Signature.Type == crypto.SigTypeDelegated {
+					//			exist = true
+					//			break
+					//		}
+					//	}
+					//}
 
 					if exist {
 						_, eres, err := components.Stm.ExecutionTraceForEvents(ctx, ts)
@@ -475,15 +474,15 @@ var actorEventCmd = &cli.Command{
 					alog.Infof("get messages for tipset %v, elapsed: %v", ts.Height(), time.Now().Sub(starttime).String())
 
 					starttime = time.Now()
-					var exist = false
-					for _, cmsg := range cmsgs {
-						if smsg, ok := cmsg.(*types.SignedMessage); ok {
-							if smsg.Signature.Type == crypto.SigTypeDelegated {
-								exist = true
-								break
-							}
-						}
-					}
+					var exist = true
+					//for _, cmsg := range cmsgs {
+					//	if smsg, ok := cmsg.(*types.SignedMessage); ok {
+					//		if smsg.Signature.Type == crypto.SigTypeDelegated {
+					//			exist = true
+					//			break
+					//		}
+					//	}
+					//}
 
 					if exist {
 						_, eres, err := components.Stm.ExecutionTraceForEvents(ctx, ts)

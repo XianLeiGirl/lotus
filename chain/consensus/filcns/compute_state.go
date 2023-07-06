@@ -2,7 +2,6 @@ package filcns
 
 import (
 	"context"
-	"github.com/filecoin-project/go-state-types/crypto"
 	"github.com/ipfs/go-cid"
 	cbor "github.com/ipfs/go-ipld-cbor"
 	cbg "github.com/whyrusleeping/cbor-gen"
@@ -198,29 +197,29 @@ func (t *TipSetExecutor) ApplyBlocks(ctx context.Context,
 				continue
 			}
 
-			sm, ok := cm.(*types.SignedMessage)
-			if ok && sm.Signature.Type == crypto.SigTypeDelegated {
-				r, err := vmi.ApplyMessage(ctx, cm)
-				if err != nil {
+			//sm, ok := cm.(*types.SignedMessage)
+			//if ok && sm.Signature.Type == crypto.SigTypeDelegated {
+			r, err := vmi.ApplyMessage(ctx, cm)
+			if err != nil {
+				return cid.Undef, cid.Undef, err
+			}
+
+			//receipts = append(receipts, &r.MessageReceipt)
+			//gasReward = big.Add(gasReward, r.GasCosts.MinerTip)
+			//penalty = big.Add(penalty, r.GasCosts.MinerPenalty)
+
+			//if storingEvents {
+			//	// Appends nil when no events are returned to preserve positional alignment.
+			//	events = append(events, r.Events)
+			//}
+
+			if em != nil {
+				if err := em.MessageApplied(ctx, ts, cm.Cid(), m, r, false); err != nil {
 					return cid.Undef, cid.Undef, err
 				}
-
-				//receipts = append(receipts, &r.MessageReceipt)
-				//gasReward = big.Add(gasReward, r.GasCosts.MinerTip)
-				//penalty = big.Add(penalty, r.GasCosts.MinerPenalty)
-
-				//if storingEvents {
-				//	// Appends nil when no events are returned to preserve positional alignment.
-				//	events = append(events, r.Events)
-				//}
-
-				if em != nil {
-					if err := em.MessageApplied(ctx, ts, cm.Cid(), m, r, false); err != nil {
-						return cid.Undef, cid.Undef, err
-					}
-				}
-				processedMsgs[m.Cid()] = struct{}{}
 			}
+			processedMsgs[m.Cid()] = struct{}{}
+			//}
 		}
 
 		//params, err := actors.SerializeParams(&reward.AwardBlockRewardParams{
