@@ -229,7 +229,7 @@ var eventsRootCmd = &cli.Command{
 					if exist {
 						_, eres, err := components.Stm.ExecutionTraceForEvents(ctx, ts)
 						if err != nil {
-							alog.Error(err)
+							alog.Error("ExecutionTraceForEvents failed:%v, ts: %v", err, ts)
 							return err
 						}
 
