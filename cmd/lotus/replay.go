@@ -206,16 +206,16 @@ var eventsRootCmd = &cli.Command{
 						return nil
 					}
 
+					//starttime := time.Now()
+					//cmsgs, err := components.CS.MessagesForTipset(ctx, ts)
+					//if err != nil {
+					//	alog.Error(err)
+					//	return err
+					//}
+					//
+					//alog.Infof("get messages for tipset %v, elapsed: %v", ts.Height(), time.Now().Sub(starttime).String())
+
 					starttime := time.Now()
-					cmsgs, err := components.CS.MessagesForTipset(ctx, ts)
-					if err != nil {
-						alog.Error(err)
-						return err
-					}
-
-					alog.Infof("get messages for tipset %v, elapsed: %v", ts.Height(), time.Now().Sub(starttime).String())
-
-					starttime = time.Now()
 					var exist = true
 					//for _, cmsg := range cmsgs {
 					//	if smsg, ok := cmsg.(*types.SignedMessage); ok {
